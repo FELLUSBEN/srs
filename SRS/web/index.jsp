@@ -1,21 +1,13 @@
-
+<%@ include file = "Header.jsp" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/SRS/CSS/style.css">
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Index</title>
     </head>
-    <body>
-        
-        <ul>
-        <li><a href="default.asp">Home</a></li>
-        <li><a href="news.asp">News</a></li>
-        <li><a href="contact.asp">Contact</a></li>
-        <li><a href="about.asp">About</a></li>
-        </ul>
-        
+    <body> 
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
@@ -24,13 +16,13 @@
             <h1>Please select an option</h1>
             
             <div class="button" id="button-1">
-                <div id="spin"></div>
-                <a href="#">Login</a>
+                <div id="underline"></div>
+                <a href="Login">Login</a>
             </div>
 
             <div class="button" id="button-1">
-                <div id="spin"></div>
-                <a href="#">Register</a>
+                <div id="underline"></div>
+                <a href="Register">Register</a>
             </div>
             
         </div>

@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package Contrul;
+package Control;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.*;
-import Model.*;
-import java.util.Date;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import Model.User;
 
 /**
  *
  * @author razic
  */
-@WebServlet(name = "Login", urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "Massege", urlPatterns = {"/Massege"})
+public class Massege extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +37,10 @@ public class Login extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
+            out.println("<title>Servlet Massege</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Massege at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,20 +58,10 @@ public class Login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession s=request.getSession();
-        Cookie[] cookies = request.getCookies();
-        for(Cookie c : cookies){
-            if(c.getName().equals("UserName"))
-                s.setAttribute("UserName", c.getValue());
-            else if(c.getName().equals("LastSeen"))
-                s.setAttribute("LastSeen", c.getValue());
+        if(request.getAttribute("msg").equals("exist")){
+            request.setAttribute("massege", "Task all ready exist :(");
+            request.getRequestDispatcher("Massege.jsp").forward(request, response);
         }
-        if(s.getAttribute("UserName")==null)
-            s.setAttribute("UserName", "");
-        if(s.getAttribute("LastSeen")==null)
-            s.setAttribute("LastSeen", null);
-            
-        request.getRequestDispatcher("Login.jsp").forward(request, response);
     }
 
     /**
@@ -84,24 +75,10 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession s=request.getSession();
-        User u;
-        if(request.getParameter("guest") == null){
-            u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
-            if(u == null){
-                request.setAttribute("msg", "Dinaid");
-                request.getRequestDispatcher("Massege").forward(request, response);
-            }
+        if(request.getAttribute("msg").equals("Dinaid")){
+            request.setAttribute("massege", "Acsses Dinaid:(");
+            request.getRequestDispatcher("Massege.jsp").forward(request, response);
         }
-        else
-            u = new User(s.getId());
-        s.setAttribute("usr", u);
-        Cookie c1 = new Cookie("UserName", u.getName());
-        Cookie c2 = new Cookie("LastSeen", new Date().toString());
-        c1.setPath("Login");
-        response.addCookie(c1);
-        response.addCookie(c2);
-        response.sendRedirect("Main");
     }
 
     /**

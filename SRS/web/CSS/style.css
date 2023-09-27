@@ -86,6 +86,17 @@ span {
   padding: 10px;
 }
 
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border: 0px solid #000000;
+  border-bottom-width: 1px;
+  background-color: transparent;
+}
 
 .button {
   display: inline-flex;
@@ -108,15 +119,6 @@ a {
   text-decoration: none;
   letter-spacing: 1px;
 }
-#container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 50px 0 150px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 #button-1 {
   position: relative;
@@ -126,23 +128,36 @@ a {
 
 #button-1 a {
   position: relative;
-  transition: all .35s ease-Out;
+  transition: all .45s ease-Out;
 }
 
-#slide {
+#underline {
   width: 100%;
-  height: 100%;
+  height: 2.5px;
+  margin-top: 15px;
+  align-self: flex-end;
   left: -200px;
-  background: #BFC0C0;
+  background: #000;
   position: absolute;
-  transition: all .35s ease-Out;
+  transition: all .3s ease-Out;
   bottom: 0;
 }
 
-#button-1:hover #slide {
+#button-1:hover #underline {
   left: 0;
 }
 
-#button-1:hover a {
-  color: #2D3142;
+
+button {
+  background-color: #cc4a33;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+}
+
+button:hover {
+  opacity: 0.8;
 }
