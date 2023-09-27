@@ -4,20 +4,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
+        <title>Register</title>
     </head>
     <body>
         <div class="bg"></div>
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
         <div class="content">
-            <h1>Please enter your credentials</h1>        
+            <h1>Please fill the form below</h1>        
             <form>
                 <input type="text" placeholder="Enter Username" name="uname" required>
-                <input type="password" placeholder="Enter Password" name="psw" required>              
-                <button type="submit">Login</button>                    
+                <input type="email" placeholder="Enter Email" name="email" required>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                <input type="password" placeholder="Retype Password" name="psw2" required>
+                <button type="submit">Register</button>                    
             </form>
-            <a href="Register">Dont have an Acount?</a>   
         </div>
     </body>
 </html>
