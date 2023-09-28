@@ -34,7 +34,7 @@ body {
 }
  
 .bg {
-    animation:slide 10s ease-in-out infinite alternate;
+    animation:slide 15s ease-in-out infinite alternate;
     background-image: linear-gradient(-60deg, #cc4a33 50%, #171516 50%);
     bottom:0;
     left:-50%;
@@ -47,11 +47,11 @@ body {
  
 .bg2 {
     animation-direction: alternate-reverse;
-    animation-duration:14s;
+    animation-duration:19s;
 }
  
 .bg3 {
-    animation-duration:17s;
+    animation-duration:22s;
 }
  
 .content {
