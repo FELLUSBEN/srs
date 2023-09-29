@@ -47,7 +47,7 @@ public class Login extends HttpServlet {
         else
             u = new User(s.getId());
         s.setAttribute("usr", u);
-        Cookie c1 = new Cookie("UserName", u.getName());
+        Cookie c1 = new Cookie("UserName", u.getUsr());
         Cookie c2 = new Cookie("LastSeen", new Date().toString());
         c1.setPath("Login");
         response.addCookie(c1);

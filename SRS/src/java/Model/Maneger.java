@@ -58,7 +58,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/DB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("insert into RESTAURANTS (USR,PASS,NAME,ADDRESS,EMPLOYEES,SEATS,FREESEATS,PR,FREEPR) VALUES ('"+r.getUsr()+"','"+r.getPass()+"','"+r.getName()+"','"+r.getAddress()+"',"+r.getEmployees()+","+r.getSeats()+","+r.getFreeSeats()+","+r.getPr()+","+r.getFreePR()+")");
+            s.executeUpdate("insert into RESTAURANTS (USR,PASS,NAME,ADDRESS,EMPLOYEES,SEATS,FREESEATS,PR,FREEPR,TYPE) VALUES ('"+r.getUsr()+"','"+r.getPass()+"','"+r.getName()+"','"+r.getAddress()+"',"+r.getEmployees()+","+r.getSeats()+","+r.getFreeSeats()+","+r.getPr()+","+r.getFreePR()+",'"+r.getType()+"')");
             s.close();
             c.close();
         }catch(Exception exeption){}
@@ -82,7 +82,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/DB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("UPDATE RESTAURANTS SET NAME='"+r2.getName()+"', ADDRESS='"+r2.getAddress()+"', EMPLOYEES="+r2.getEmployees()+", SEATS=" + r2.getSeats()+ ", FREESEATS=" + r2.getFreeSeats()+", PR=" + r2.getPr()+ ", FREEPR=" + r2.getFreePR()+"WHERE USR='"+r1.getUsr()+"' AND PASS='"+r1.getPass()+"'");
+            s.executeUpdate("UPDATE RESTAURANTS SET NAME='"+r2.getName()+"', ADDRESS='"+r2.getAddress()+"', EMPLOYEES="+r2.getEmployees()+", SEATS=" + r2.getSeats()+ ", FREESEATS=" + r2.getFreeSeats()+", PR=" + r2.getPr()+ ", FREEPR=" + r2.getFreePR()+ ", TYPE='" + r2.getType()+"' WHERE USR='"+r1.getUsr()+"' AND PASS='"+r1.getPass()+"'");
             s.close();
             c.close();
         }catch(Exception exeption){}

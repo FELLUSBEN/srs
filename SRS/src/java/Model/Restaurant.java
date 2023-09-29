@@ -16,8 +16,9 @@ public class Restaurant extends User{
     private int freeSeats;
     private int pr;
     private int freePR;
+    private String type;
 
-    public Restaurant(String usr, String pass, String name, String address, int employees, int seats, int freeSeats, int pr, int freePR) {
+    public Restaurant(String usr, String pass, String name, String address, int employees, int seats, int freeSeats, int pr, int freePR, String type) {
         super(usr, pass);
         this.name = name;
         this.address = address;
@@ -26,6 +27,7 @@ public class Restaurant extends User{
         this.freeSeats = freeSeats;
         this.pr = pr;
         this.freePR = freePR;
+        this.type = type;
     }
 
     public String getAddress() {
@@ -55,5 +57,9 @@ public class Restaurant extends User{
     public int getSeats() {
         return seats;
     }
-    
+
+    public String getType() {
+        return type;
+    }
+
 }
