@@ -35,24 +35,16 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession s=request.getSession();
+        HttpSession session =request.getSession();
         User u;
-        if(request.getParameter("guest") == null){
-            u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
-            if(u == null){
-                request.setAttribute("msg", "Dinaid");
-                request.getRequestDispatcher("Massege").forward(request, response);
-            }
+        u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
+        if(u == null){
+            request.setAttribute("msg", "error");
+            request.getRequestDispatcher("Login").forward(request, response);
         }
-        else
-            u = new User(s.getId());
-        s.setAttribute("usr", u);
-        Cookie c1 = new Cookie("UserName", u.getName());
-        Cookie c2 = new Cookie("LastSeen", new Date().toString());
-        c1.setPath("Login");
-        response.addCookie(c1);
-        response.addCookie(c2);
-        response.sendRedirect("Main");
+        
+
+
     }
 
 
