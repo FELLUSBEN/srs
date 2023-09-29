@@ -9,21 +9,25 @@ package Model;
  * @author razic
  */
 public class User {
-    private String name;
+    private String usr;
     private String pass;
     
-    public User(String name,String pass){
-        this.name = name;
+    public User(String usr,String pass){
+        this.usr = usr;
         this.pass = pass;
     }
     
     public User(String id){ //creats a guest user with session id
-        this.name = "guest " + id;
+        this.usr = "guest " + id;
         this.pass = "";
     }
     
-    public String getName(){
-        return name;
+    public String getUsr(){
+        return usr;
+    }
+
+    public String getPass() {
+        return pass;
     }
 
 }
