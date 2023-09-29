@@ -11,10 +11,13 @@
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
         <div class="content">
-            <h1>Please enter your credentials</h1>        
-            <form>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <input type="password" placeholder="Enter Password" name="psw" required>              
+            <h1>Please enter your credentials</h1>    
+            <% if (request.getAttribute("msg")!= null && request.getAttribute("msg").equals("error")) {%>
+                <h2 style="color:red">invalid credentials</h2>
+            <%}%>
+            <form method="POST">
+                <input type="text" placeholder="Enter Username" name="usr" required>
+                <input type="password" placeholder="Enter Password" name="pass" required>              
                 <button type="submit">Login</button>                    
             </form>
             <a href="Register">Dont have an Acount?</a>   

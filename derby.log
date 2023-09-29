@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\razic\srs
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Fri Sep 29 12:52:04 IDT 2023: Shutting down Derby engine
+----------------------------------------------------------------
+Fri Sep 29 12:52:04 IDT 2023:
+Shutting down instance a816c00e-018a-dfe2-1b82-ffff9acf65a4 on database directory C:\Users\razic\srs\DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
+----------------------------------------------------------------

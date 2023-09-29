@@ -35,15 +35,14 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession s=request.getSession();
+        HttpSession session =request.getSession();
         User u;
-        if(request.getParameter("guest") == null){
-            u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
-            if(u == null){
-                request.setAttribute("msg", "Dinaid");
-                request.getRequestDispatcher("Massege").forward(request, response);
-            }
+        u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
+        if(u == null){
+            request.setAttribute("msg", "error");
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
+<<<<<<< HEAD
         else
             u = new User(s.getId());
         s.setAttribute("usr", u);
@@ -52,7 +51,12 @@ public class Login extends HttpServlet {
         c1.setPath("Login");
         response.addCookie(c1);
         response.addCookie(c2);
+=======
+        session.setAttribute("UserName", u.getUsr());
+>>>>>>> 337b5fa8eeb99894f7f3546124f4231c7968d245
         response.sendRedirect("Main");
+        
+
     }
 
 

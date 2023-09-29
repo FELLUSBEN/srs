@@ -147,6 +147,9 @@ a {
   left: 0;
 }
 
+#li_right {
+    float: right;
+}
 
 button {
   background-color: #cc4a33;
