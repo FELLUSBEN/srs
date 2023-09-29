@@ -40,10 +40,11 @@ public class Login extends HttpServlet {
         u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
         if(u == null){
             request.setAttribute("msg", "error");
-            request.getRequestDispatcher("Login").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
+        session.setAttribute("UserName", u.getUsr());
+        response.sendRedirect("Main");
         
-
 
     }
 

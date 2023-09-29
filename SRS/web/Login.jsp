@@ -15,9 +15,9 @@
             <% if (request.getAttribute("msg")!= null && request.getAttribute("msg").equals("error")) {%>
                 <h2 style="color:red">invalid credentials</h2>
             <%}%>
-            <form action="POST">
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <input type="password" placeholder="Enter Password" name="psw" required>              
+            <form method="POST">
+                <input type="text" placeholder="Enter Username" name="usr" required>
+                <input type="password" placeholder="Enter Password" name="pass" required>              
                 <button type="submit">Login</button>                    
             </form>
             <a href="Register">Dont have an Acount?</a>   
