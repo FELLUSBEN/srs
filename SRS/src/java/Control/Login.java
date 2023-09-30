@@ -41,10 +41,10 @@ public class Login extends HttpServlet {
         if(u == null){
             request.setAttribute("msg", "error");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+        }else{
         session.setAttribute("UserName", u.getUsr());
         response.sendRedirect("Main");
-        
+        }
 
     }
 
