@@ -42,7 +42,6 @@ public class Login extends HttpServlet {
             request.setAttribute("msg", "error");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
-<<<<<<< HEAD
         else
             u = new User(s.getId());
         s.setAttribute("usr", u);
@@ -51,9 +50,7 @@ public class Login extends HttpServlet {
         c1.setPath("Login");
         response.addCookie(c1);
         response.addCookie(c2);
-=======
         session.setAttribute("UserName", u.getUsr());
->>>>>>> 337b5fa8eeb99894f7f3546124f4231c7968d245
         response.sendRedirect("Main");
         
 
