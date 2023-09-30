@@ -7,9 +7,7 @@
         <title>Register</title>
     </head>
     <body>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
+
         <div class="content">
             <h1>Please fill the form below</h1>        
             <form>

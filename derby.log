@@ -1,29 +1,29 @@
-Thu Sep 28 16:21:28 IDT 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
+Sat Sep 30 10:02:31 IDT 2023 : Apache Derby Network Server - 10.14.2.0 - (1828579) started and ready to accept connections on port 1527
 ----------------------------------------------------------------
-Thu Sep 28 16:21:29 IDT 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018a-dbf3-96f5-ffff9acf65a4 
-on database directory C:\Users\razic\srs\DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
+Sat Sep 30 10:02:32 IDT 2023:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018a-e4e5-5e41-000003e990a9 
+on database directory C:\Users\Ben\Documents\GitHub\srs\DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
 Loaded from file:/C:/glassfish5/javadb/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=17.0.5+9-LTS-191
+java.runtime.version=15.0.1+9-18
 user.dir=C:\glassfish5\javadb
-os.name=Windows 11
+os.name=Windows 10
 os.arch=amd64
 os.version=10.0
-derby.system.home=C:\Users\razic\srs
+derby.system.home=C:\Users\Ben\Documents\GitHub\srs
 Database Class Loader started - derby.database.classpath=''
-Thu Sep 28 16:22:26 IDT 2023 Thread[DRDAConnThread_3,5,main] Cleanup action starting
-java.sql.SQLException: Database 'my_db' not found.
+Sat Sep 30 10:02:32 IDT 2023 Thread[DRDAConnThread_2,5,main] (XID = 466), (SESSIONID = 0), (DATABASE = DB), (DRDAID = {1}), Cleanup action starting
+java.sql.SQLNonTransientConnectionException: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:554)
 	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
@@ -35,12 +35,12 @@ java.sql.SQLException: Database 'my_db' not found.
 	at org.apache.derby.impl.drda.DRDAConnThread.parseDRDAConnection(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.processCommands(Unknown Source)
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
-Caused by: ERROR XJ004: Database 'my_db' not found.
+Caused by: ERROR 08004: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	... 21 more
 ============= begin nested exception, level (1) ===========
-ERROR XJ004: Database 'my_db' not found.
+ERROR 08004: Connection authentication failure occurred.  Reason: Invalid authentication..
 	at org.apache.derby.iapi.error.StandardException.newException(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.wrapArgsForTransportAcrossDRDA(Unknown Source)
 	at org.apache.derby.impl.jdbc.SQLExceptionFactory.getSQLException(Unknown Source)
@@ -48,11 +48,11 @@ ERROR XJ004: Database 'my_db' not found.
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.Util.generateCsSQLException(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.newSQLException(Unknown Source)
-	at org.apache.derby.impl.jdbc.EmbedConnection.handleDBNotFound(Unknown Source)
+	at org.apache.derby.impl.jdbc.EmbedConnection.checkUserCredentials(Unknown Source)
 	at org.apache.derby.impl.jdbc.EmbedConnection.<init>(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver$1.run(Unknown Source)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:554)
 	at org.apache.derby.jdbc.InternalDriver.getNewEmbedConnection(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
 	at org.apache.derby.jdbc.InternalDriver.connect(Unknown Source)
@@ -66,10 +66,4 @@ ERROR XJ004: Database 'my_db' not found.
 	at org.apache.derby.impl.drda.DRDAConnThread.run(Unknown Source)
 ============= end nested exception, level (1) ===========
 Cleanup action completed
-Thu Sep 28 16:22:26 IDT 2023 Thread[DRDAConnThread_3,5,main] (DATABASE = my_db), (DRDAID = {2}), Database 'my_db' not found.
-----------------------------------------------------------------
-Thu Sep 28 21:08:17 IDT 2023: Shutting down Derby engine
-----------------------------------------------------------------
-Thu Sep 28 21:08:17 IDT 2023:
-Shutting down instance a816c00e-018a-dbf3-96f5-ffff9acf65a4 on database directory C:\Users\razic\srs\DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@73d16e93 
-----------------------------------------------------------------
+Sat Sep 30 10:02:32 IDT 2023 Thread[DRDAConnThread_2,5,main] (DATABASE = DB), (DRDAID = {1}), Connection authentication failure occurred.  Reason: Invalid authentication..
