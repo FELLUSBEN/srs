@@ -14,5 +14,10 @@
         <li><a href="contact.asp">Contact</a></li>
         <li><a href="about">About</a></li>
         </ul>
+        
+        <div class="bg"></div>
+        <div class="bg bg2"></div>
+        <div class="bg bg3"></div>
+        
     </body>
 </html>
