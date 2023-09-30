@@ -41,21 +41,10 @@ public class Login extends HttpServlet {
         if(u == null){
             request.setAttribute("msg", "error");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
-<<<<<<< HEAD
-        else
-            u = new User(s.getId());
-        s.setAttribute("usr", u);
-        Cookie c1 = new Cookie("UserName", u.getUsr());
-        Cookie c2 = new Cookie("LastSeen", new Date().toString());
-        c1.setPath("Login");
-        response.addCookie(c1);
-        response.addCookie(c2);
-=======
+        }else{
         session.setAttribute("UserName", u.getUsr());
->>>>>>> 337b5fa8eeb99894f7f3546124f4231c7968d245
         response.sendRedirect("Main");
-        
+        }
 
     }
 
