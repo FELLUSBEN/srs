@@ -8,17 +8,25 @@
         <title>Main Page</title>
     </head>
     <body>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
-        <div class="content">
-            <h1>Please enter your credentials</h1>        
-            <form>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-                <input type="password" placeholder="Enter Password" name="psw" required>              
-                <button type="submit">Login</button>                    
-            </form>
-            <a href="Register">Dont have an Acount?</a>   
+        
+        <div class="content" style="width: 70%">
+            <h1>Please select an option</h1>        
+            
+            <div class="button" id="button-1">
+                <div id="underline"></div>
+                <a href="Search">Search for restaurant</a>
+            </div>
+            <h2>Announcements</h2>
+            <table style="width:100%;">
+                <tr>
+                    <th>restaurant</th>
+                    <th>announcement</th>
+                </tr>
+                
+                <tr>
+                    
+                </tr>
+            </table>
         </div>
     </body>
 </html>

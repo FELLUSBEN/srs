@@ -1,6 +1,7 @@
 
 html {
     height:100%;
+    font-family: monospace;
 }
  
 ul {
@@ -163,4 +164,10 @@ button {
 
 button:hover {
   opacity: 0.8;
+}
+
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: black;
 }

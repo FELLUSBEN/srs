@@ -19,7 +19,7 @@
         <div class="bg bg2"></div>
         <div class="bg bg3"></div>
         <div class="content">
-            <h1>Welcome to the Super Reservetion System!</h1>
+            <h1>Welcome to the Super Reservation System!</h1>
             <h1>Please select an option</h1>
             
             <div class="button" id="button-1">
