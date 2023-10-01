@@ -87,7 +87,7 @@ span {
   padding: 10px;
 }
 
-input[type=text], input[type=password], input[type=email] {
+input[type=text], input[type=password], input[type=email], input[type=number] {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -187,27 +187,16 @@ select {
   cursor: pointer;
 }
 
-.select {
-  position: relative;
-  display: flex;
-  width: 20em;
-  height: 3em;
-  border-radius: .25em;
-  overflow: hidden;
+.signup-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
 }
 
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1em;
-  background-color: #34495e;
-  transition: .25s all ease;
-  pointer-events: none;
-}
-
-.select:hover::after {
-  color: #f39c12;
+/* Center the forms horizontally */
+#toggle-form-button {
+    display: block;
+    margin: 20px auto;
 }
 

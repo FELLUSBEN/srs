@@ -29,13 +29,13 @@ public class Register extends HttpServlet {
         HttpSession s =request.getSession();
         User u;
         //add psw == psw2 check!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if(request.getParameter("type") == "castomer"){
+        if(request.getParameter("type").equals("customer")){
             Castomer c =new Castomer(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("email"));
             Model.Maneger.Add(c);
             u = c;
         } 
         else{
-            Restaurant r =new Restaurant(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("name"),request.getParameter("address"), request.getParameter("employees"), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("fseats")), Integer.parseInt(request.getParameter("pr")), Integer.parseInt(request.getParameter("fpr")), request.getParameter("Ftype"));
+            Restaurant r =new Restaurant(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("name"),request.getParameter("address"), request.getParameter("employees"), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("pr")), Integer.parseInt(request.getParameter("pr")), request.getParameter("Ftype"));
             Model.Maneger.Add(r);
             u = r;
         }
