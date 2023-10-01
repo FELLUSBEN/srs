@@ -64,6 +64,18 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
+    public static void Add(Announcement a){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlc = "jdbc:derby://localhost:1527/DB";
+            Connection c = DriverManager.getConnection(urlc, "root", "root");
+            Statement s = c.createStatement();
+            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITEL,DESC,DATE) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate()+"')");
+            s.close();
+            c.close();
+        }catch(Exception exeption){}
+    }
+    
     public static void Update(Castomer c1,Castomer c2){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
