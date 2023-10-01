@@ -60,17 +60,10 @@ public class Action extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("act").equals("A")){
-//            Restaurant r = new Restaurant(((User)request.getSession().getAttribute("usr")).getUsr(),request.getParameter("name"),request.getParameter("link"),request.getParameter("desc"),Boolean.parseBoolean(request.getParameter("pub")));
-//            if(Model.Maneger.isExists(r)){
-//                request.setAttribute("msg", "exist");
-//                request.getRequestDispatcher("Massege").forward(request, response);
-//            }else{
-//                Model.Maneger.Add(r);
-//                ((User)request.getSession().getAttribute("usr")).setAdded(s.getName());
-//                request.getRequestDispatcher("Main").forward(request, response);
-//            } *******add annaons - meneger function needed*********
+            Announcement a = new Announcement(((User)request.getSession().getAttribute("usr")).getUsr(),request.getParameter("titel"),request.getParameter("desc"));
+            Model.Maneger.Add(a);
+            request.getRequestDispatcher("Main").forward(request, response);
         }
-        
         else if(request.getParameter("act").equals("S")){
             String[] sparams={request.getParameter("name"), request.getParameter("desc")};
             request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
@@ -127,13 +120,15 @@ public class Action extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if(request.getParameter("act").equals("A")){
-            request.getRequestDispatcher("Add.jsp").forward(request, response);
+            request.getRequestDispatcher("Announcement.jsp").forward(request, response);
         }else if(request.getParameter("act").equals("E")){
             request.getRequestDispatcher("Exit.jsp").forward(request, response);
+        }else if(request.getParameter("act").equals("U")){
+            request.getRequestDispatcher("Update.jsp").forward(request, response);
         }else if(request.getParameter("act").equals("S")){
             request.getRequestDispatcher("Display.jsp").forward(request, response);
         }
-    }
+    } //diside if Announcement.jsp will add announcement for restaurant and display them for castomer, or make to diffrent "Announcement.jsp"
 
     /**
      * Returns a short description of the servlet.
