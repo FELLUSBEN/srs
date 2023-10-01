@@ -2,7 +2,3 @@
 /SRS/dist/
 /SRS/nbproject/
 
-DB/log/log.ctrl
-DB/log/log1.dat
-DB/log/logmirror.ctrl
-DB/db.lck

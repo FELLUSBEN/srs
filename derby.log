@@ -12,3 +12,9 @@ os.arch=amd64
 os.version=10.0
 derby.system.home=C:\Users\Ben\Documents\GitHub\srs
 Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Sat Sep 30 15:13:20 IDT 2023: Shutting down Derby engine
+----------------------------------------------------------------
+Sat Sep 30 15:13:20 IDT 2023:
+Shutting down instance a816c00e-018a-e5e9-aa6e-000003e990a9 on database directory C:\Users\Ben\Documents\GitHub\srs\DB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
+----------------------------------------------------------------
