@@ -20,3 +20,4 @@
         </div>
     </body>
 </html>
+//make it possible to register a restaurant!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
