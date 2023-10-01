@@ -31,7 +31,7 @@ public class Search extends HttpServlet {
         String name = request.getParameter("res_name");
         String type = request.getParameter("type");
         ArrayList<Restaurant> res_list = new ArrayList<Restaurant>();
-        
+        //use manager!!!
         request.setAttribute("res_list", res_list);
         request.getRequestDispatcher("Search.jsp").forward(request, response);
     }
