@@ -66,6 +66,7 @@ body {
     text-align:center;
     top:50%;
     transform:translate(-50%, -50%);
+    height: auto;
 }
  
 h1 {
@@ -188,15 +189,13 @@ select {
 }
 
 .signup-form {
-    width: 300px;
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
 }
 
 /* Center the forms horizontally */
 #toggle-form-button {
     display: block;
-    margin: 20px auto;
+    margin: 0 auto;
 }
 

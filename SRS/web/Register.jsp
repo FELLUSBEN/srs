@@ -12,6 +12,7 @@
             <h1>Please fill the form below</h1>      
             <div id="customer-form" class="signup-form">
             <form>
+                <input type="hidden" name="type" value="customer">
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <input type="email" placeholder="Enter Email" name="email" required>
                 <input type="password" placeholder="Enter Password" name="psw" required>
@@ -22,6 +23,7 @@
             
             <div id="restaurant-form" class="signup-form" style="display: none">
             <form>
+                <input type="hidden" name="type" value="restaurant">
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <input type="text" placeholder="Enter restaurant name" name="name" required>
                 <input type="text" placeholder="Enter Address" name="address" required>
