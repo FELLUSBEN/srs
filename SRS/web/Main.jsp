@@ -1,4 +1,5 @@
 <%@ include file = "Header.jsp" %>
+<jsp:useBean id="user" class="Model.User" scope="session" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
 <!DOCTYPE html>
@@ -16,6 +17,20 @@
                 <div id="underline"></div>
                 <a href="Search">Search for restaurant</a>
             </div>
+            
+            <% if(user instanceof Model.Restaurant){ %>
+                <div class="button" id="button-1">
+                <div id="underline"></div>
+                <a href="Update">Update restaurant data</a>
+                </div>
+                
+                <div class="button" id="button-1">
+                <div id="underline"></div>
+                <a href="Announce">Announce</a>
+                </div>
+                
+            <%}%>
+            
             <h2>Announcements</h2>
             <table style="width:100%;">
                 <tr>
