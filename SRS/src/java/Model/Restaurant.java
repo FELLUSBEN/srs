@@ -11,14 +11,14 @@ package Model;
 public class Restaurant extends User{
     private String name;
     private String address;
-    private int employees;
+    private String employees;
     private int seats;
     private int freeSeats;
     private int pr;
     private int freePR;
     private String type;
 
-    public Restaurant(String usr, String pass, String name, String address, int employees, int seats, int freeSeats, int pr, int freePR, String type) {
+    public Restaurant(String usr, String pass, String name, String address, String employees, int seats, int freeSeats, int pr, int freePR, String type) {
         super(usr, pass);
         this.name = name;
         this.address = address;
@@ -34,7 +34,7 @@ public class Restaurant extends User{
         return address;
     }
 
-    public int getEmployees() {
+    public String getEmployees() {
         return employees;
     }
 

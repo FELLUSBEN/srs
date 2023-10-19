@@ -64,6 +64,18 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
+    public static void Add(Announcement a){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlc = "jdbc:derby://localhost:1527/DB";
+            Connection c = DriverManager.getConnection(urlc, "root", "root");
+            Statement s = c.createStatement();
+            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITEL,DESC,DATE) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate()+"')");
+            s.close();
+            c.close();
+        }catch(Exception exeption){}
+    }
+    
     public static void Update(Castomer c1,Castomer c2){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -124,29 +136,28 @@ public class Maneger {
         }catch(Exception exception){return false;}
     }
     
-    /*public static ArrayList<Event> Serch(String usr,int day,int hour){
+    public static ArrayList<Restaurant> Search(User u, String name, String desc){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/DB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM EVENTS WHERE EVENTS.DAY="+day+" AND EVENTS.TIME ="+hour);
-            ArrayList<Event> eventList = new ArrayList<Event>();
+            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANTS WHERE RESTAURANT.NAME="+name+" OR RESTAURANT.DESC ="+desc);
+            ArrayList<Restaurant> restaurantList = new ArrayList<>();
             while(rs.next()){
-                if(rs.getBoolean("PUB") || rs.getString("USR").equals(usr))
-                    eventList.add(new Event(rs.getString("USR"), rs.getString("DESCRIPTION"), rs.getInt("DAY"), rs.getInt("TIME"), rs.getBoolean("PUB")));
+                restaurantList.add(new Restaurant("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("DESC")));
             }
             rs.close();
             s.close();
             c.close();
-            if(eventList.size()==0){
+            if(restaurantList.isEmpty()){
                 return null;
             }
-            return eventList;
+            return restaurantList;
         }catch(Exception e){
             return null;
         }
-    }*/
+    }
     
     public static void Delete(Castomer c){
         try{

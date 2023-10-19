@@ -7,9 +7,7 @@
         <title>Login</title>
     </head>
     <body>
-        <div class="bg"></div>
-        <div class="bg bg2"></div>
-        <div class="bg bg3"></div>
+
         <div class="content">
             <h1>Please enter your credentials</h1>    
             <% if (request.getAttribute("msg")!= null && request.getAttribute("msg").equals("error")) {%>
