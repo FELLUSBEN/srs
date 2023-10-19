@@ -1,0 +1,201 @@
+
+html {
+    height:100%;
+    font-family: monospace;
+}
+ 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
+
+
+body {
+    margin:0;
+}
+ 
+.bg {
+    animation:slide 15s ease-in-out infinite alternate;
+    background-image: linear-gradient(-60deg, #cc4a33 50%, #171516 50%);
+    bottom:0;
+    left:-50%;
+    opacity:.5;
+    position:fixed;
+    right:-50%;
+    top:0;
+    z-index:-1;
+}
+ 
+.bg2 {
+    animation-direction: alternate-reverse;
+    animation-duration:19s;
+}
+ 
+.bg3 {
+    animation-duration:22s;
+}
+ 
+.content {
+    background-color:rgba(255,255,255,.8);
+    border-radius:.25em;
+    box-shadow:0 0 .25em rgba(0,0,0,.25);
+    box-sizing:border-box;
+    left:50%;
+    padding:10vmin;
+    position:fixed;
+    text-align:center;
+    top:50%;
+    transform:translate(-50%, -50%);
+    height: auto;
+}
+ 
+h1 {
+    font-family:monospace;
+}
+ 
+@keyframes slide {
+    0% {
+        transform:translateX(-25%);
+    }
+ 
+    100% {
+        transform:translateX(25%);
+    }
+}
+
+span {
+  border: 2px solid #4F5D75;
+  padding: 10px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border: 0px solid #000000;
+  border-bottom-width: 1px;
+  background-color: transparent;
+}
+
+.button {
+  display: inline-flex;
+  height: 40px;
+  width: 150px;
+  border: 2px solid #000000;
+  margin: 20px 20px 20px 20px;
+  color: #BFC0C0;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: .8em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+#button-1 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#button-1 a {
+  position: relative;
+  transition: all .45s ease-Out;
+}
+
+#underline {
+  width: 100%;
+  height: 2.5px;
+  margin-top: 15px;
+  align-self: flex-end;
+  left: -200px;
+  background: #000;
+  position: absolute;
+  transition: all .3s ease-Out;
+  bottom: 0;
+}
+
+#button-1:hover #underline {
+  left: 0;
+}
+
+#li_right {
+    float: right;
+}
+
+button {
+  background-color: #cc4a33;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 70%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+table, th, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+    border-color: black;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+
+.signup-form {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Center the forms horizontally */
+#toggle-form-button {
+    display: block;
+    margin: 0 auto;
+}
+
