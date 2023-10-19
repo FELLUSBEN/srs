@@ -188,4 +188,9 @@ public class Maneger {
             return;
         }
     }
+    
+    public static ArrayList<Announcement> getAnnouncements(){
+        return null;
+    }
+    
 }

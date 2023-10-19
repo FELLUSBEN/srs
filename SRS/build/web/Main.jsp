@@ -40,7 +40,7 @@
                     <th>restaurant</th>
                     <th>announcement</th>
                 </tr>
-                <%for(Model.Announcement a:(ArrayList<Model.Announcement>)request.getAttribute("content")){%>
+                <%for(Model.Announcement a:(ArrayList<Model.Announcement>)request.getAttribute("announcements")){%>
                 <tr>
                     <td>a.getUsr()</td>
                     <td>a.getDesc()</td>
