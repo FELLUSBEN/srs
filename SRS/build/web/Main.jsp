@@ -1,4 +1,5 @@
 <%@ include file = "Header.jsp" %>
+<%@ page import="java.util.ArrayList" %>
 <jsp:useBean id="user" class="Model.User" scope="session" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
@@ -32,16 +33,24 @@
             <%}%>
             
             <h2>Announcements</h2>
+            
+            <%if(request.getAttribute("announcements") != null){%>
             <table style="width:100%;">
                 <tr>
                     <th>restaurant</th>
                     <th>announcement</th>
                 </tr>
-                
+                <%for(Model.Announcement a:(ArrayList<Model.Announcement>)request.getAttribute("content")){%>
                 <tr>
-                    
+                    <td>a.getUsr()</td>
+                    <td>a.getDesc()</td>
                 </tr>
+                <%}%>
             </table>
+            <%}else{%>
+            <h2>there are no new announcemnts</h2>
+            <%}%>
+            
         </div>
     </body>
 </html>
