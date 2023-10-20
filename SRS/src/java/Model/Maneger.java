@@ -136,13 +136,13 @@ public class Maneger {
         }catch(Exception exception){return false;}
     }
     
-    public static ArrayList<Restaurant> Search(User u, String name, String desc){
+    public static ArrayList<Restaurant> Search(String name, String type){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/DB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANTS WHERE RESTAURANT.NAME="+name+" OR RESTAURANT.DESC ="+desc);
+            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANTS WHERE RESTAURANT.NAME="+name+" OR RESTAURANT.TYPE ="+type);
             ArrayList<Restaurant> restaurantList = new ArrayList<>();
             while(rs.next()){
                 restaurantList.add(new Restaurant("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("DESC")));

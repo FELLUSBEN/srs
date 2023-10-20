@@ -26,7 +26,7 @@ public class Action extends HttpServlet {
         else if(request.getParameter("act").equals("S")){
             String[] sparams={request.getParameter("name"), request.getParameter("desc")};
             request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
-            ArrayList<Restaurant> rs= Model.Maneger.Search(((User)request.getSession().getAttribute("usr")).getUsr(), sparams[0], sparams[1]);
+            ArrayList<Restaurant> rs= Model.Maneger.Search(sparams[0], sparams[1]);
             request.setAttribute("content", (rs == null)? "X":rs); 
             request.getRequestDispatcher("Display.jsp").forward(request, response);
         }else{

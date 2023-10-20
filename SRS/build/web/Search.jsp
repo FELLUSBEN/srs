@@ -11,11 +11,7 @@
     <body>
         <div class="content" style="width: 70%">
             <h1>Search</h1>
-<<<<<<< HEAD
-            <form method="POST">
-=======
             <form method="POST"> 
->>>>>>> d448b38c8562525b7f7b16673de3b5a51cc56b1f
                 <input type="text" placeholder="restaurant name" name="name">
                 <input type="text" placeholder="restaurant type" name="type">
                 <br />
