@@ -56,6 +56,9 @@ public class Action extends HttpServlet {
                     }
                 }
             }
+            else if(params[0].equals("B")){
+                //**************************continue**********************
+            }
 //            else{
 //                Model.Maneger.Delete(new Restaurant(params[1],params[2],"","","",0,0,0,0,""));
 //                ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);
