@@ -40,7 +40,7 @@ public class Maneger {
         }
     }
     
-    public static User find(String name, String type){
+    public static Restaurant find(String name, String type){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/DB";
