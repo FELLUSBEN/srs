@@ -62,4 +62,13 @@ public class Restaurant extends User{
         return type;
     }
 
+    public void setFreePR(int freePR) {
+        this.freePR = freePR;
+    }
+
+    public void setFreeSeats(int freeSeats) {
+        this.freeSeats = freeSeats;
+    }
+
+    
 }

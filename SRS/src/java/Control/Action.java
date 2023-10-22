@@ -56,6 +56,19 @@ public class Action extends HttpServlet {
                     }
                 }
             }
+            else if(params[0].equals("B")){
+                Restaurant r = Model.Maneger.find(params[1],params[2]);
+                if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
+                    request.setAttribute("msg", "no_room");
+                    request.getRequestDispatcher("Massege").forward(request, response);
+                }
+                else{
+                    Model.Maneger.Delete(r);
+                    r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
+                    r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
+                    Model.Maneger.Add(r);
+                }
+            }
 //            else{
 //                Model.Maneger.Delete(new Restaurant(params[1],params[2],"","","",0,0,0,0,""));
 //                ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);

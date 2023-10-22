@@ -40,6 +40,37 @@ public class Maneger {
         }
     }
     
+    public static Restaurant find(String name, String type){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlc = "jdbc:derby://localhost:1527/DB";
+            Connection c = DriverManager.getConnection(urlc, "root", "root");
+            Statement s = c.createStatement();
+            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE NAME='"+name+"' AND TYPE='"+type+"'");
+            
+            Restaurant r = null;
+            if(rs.next()){
+                String u = rs.getString("USR");
+                String p = rs.getString("PASS");
+                String n = rs.getString("NAME");
+                String a = rs.getString("ADDRESS");
+                String e = rs.getString("EMPLOYEES");
+                int seats = rs.getInt("SEATS");
+                int fseats = rs.getInt("FREESEATS");
+                int pr = rs.getInt("PR");
+                int fpr = rs.getInt("FREEPR");
+                String t = rs.getString("TYPE");
+                r = new Restaurant(u,p,n,a,e,seats,fseats,pr,fpr,t);
+            }
+            rs.close();
+            s.close();
+            c.close();
+            return r;
+        }catch(Exception e){
+            return null;
+        }
+    }
+    
     public static void Add(Castomer x){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
