@@ -1,10 +1,7 @@
-<%-- 
-    Document   : Exit
-    Created on : May 28, 2023, 8:21:48 PM
-    Author     : razic
---%>
+
 <%@page import="Model.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ include file = "Header.jsp" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,12 +11,14 @@
     </head>
     <body>
         <body>
-        <%User usr=((User)session.getAttribute("usr"));%>
-        <header>
-            <div><h1>Hello <%= usr.getUsr()%></h1></div>
-        </header>
-        <%session.invalidate();%>
-        <button onclick="window.location.href = './index.html'">Exit</button>
+             <div class="content" style="width: 70%">
+                <%User usr=((User)session.getAttribute("usr"));%>
+                <header>
+                    <div><h1>Hello <%= usr.getUsr()%></h1></div>
+                </header>
+                <%session.invalidate();%>
+                <button onclick="window.location.href = './index'">Exit</button>
+             </div>
     </body>
     </body>
 </html>
