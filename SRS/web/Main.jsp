@@ -37,13 +37,17 @@
             <%if(request.getAttribute("announcements") != null){%>
             <table style="width:100%;">
                 <tr>
-                    <th>restaurant</th>
-                    <th>announcement</th>
+                    <th>Restaurant</th>
+                    <th>Title</th>
+                    <th>Announcement</th>
+                    <th>Date</th>
                 </tr>
                 <%for(Model.Announcement a:(ArrayList<Model.Announcement>)request.getAttribute("announcements")){%>
                 <tr>
-                    <td>a.getUsr()</td>
-                    <td>a.getDesc()</td>
+                    <td><%a.getUsr()%></td>
+                    <td><%a.getTitel%></td>
+                    <td><%a.getDesc()%></td>
+                    <td><%a.getDate()%></td>
                 </tr>
                 <%}%>
             </table>
