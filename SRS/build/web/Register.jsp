@@ -9,7 +9,10 @@
     <body>
 
         <div class="content">
-            <h1>Please fill the form below</h1>      
+            <h1>Please fill the form below</h1>
+            <% if (request.getAttribute("msg")!= null){%>
+                <h2 style="color:red"><%= request.getAttribute("msg");%></h2>
+            <%}%>
             <div id="customer-form" class="signup-form">
             <form method= "POST">
                 <input type="hidden" name="type" value="customer">
