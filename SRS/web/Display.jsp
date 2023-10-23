@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Display
-    Created on : May 28, 2023, 8:22:21 PM
-    Author     : razic
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
@@ -30,30 +25,28 @@
             <%}else if(request.getAttribute("content").equals("X")){%>
                 <h1>no restaurants found :(</h1>
             <%}else{%>
-<!--                <div>
+                <div>
                     <table>
                         <tr>
-                            <th>Owner ID</th>
-                            <th>Acount number</th>
-                            <th>Balance</th>
-                            <th>Description</th>
-                            <th>Opening date</th>
+                            <th>Name</th>
+                            <th>Type</th>
+                            <th>Address</th>
+                            <th>free seats</th>
+                            <th>free private rooms</th>
                         </tr>
-                        <%for(Acount a:(ArrayList<Acount>)request.getAttribute("content")){%>
+                        <%for(Restaurant a:(ArrayList<Restaurant>)request.getAttribute("content")){%>
                             <tr>
-                                <td><%= a.getId()%></td>
-                                <td><%= a.getNum()%></td>
-                                <td><%= a.getBalance()%></td>
-                                <td><%= a.getDesc()%></td>
-                                <td><%= a.getDate()%></td>
-                                <td><form action="Action" class="in"><input type="hidden" name="act" value="D,<%= a.getNum()%>,<%= a.getBalance()%>"><input type="submit" class="submit" value="Delete"></form></td>
-                                <td><form action="Action" class="in"><input type="hidden" name="act" value="U,<%= a.getId()%>,<%= a.getNum()%>,<%= a.getBalance()%>,<%=a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Update"></form></td>
-                                <td><form action="Action" class="in"><input type="hidden" name="act" value="SP,<%= a.getId()%>,<%= a.getNum()%>,<%= a.getBalance()%>,<%=a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Split"><input type="number" min="2" name="num"></form></td>
-                                <td><form action="Action" class="in"><input type="hidden" name="act" value="M,<%= a.getId()%>,<%= a.getNum()%>,<%= a.getBalance()%>,<%=a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Merge"></form></td>
+                                <td><%= a.getName()%></td>
+                                <td><%= a.getType()%></td>
+                                <td><%= a.getAddress()%></td>
+                                <td><%= a.getFreeSeats()%></td>
+                                <td><%= a.getFreePR()%></td>
+                                <td><form action="Action" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getName()%>"> <input type=number placeholder="0" id="count" required> <input type="submit" class="submit" value="Book"></form></td>
+                                <td><form action="Action" class="in"><input type="hidden" name="act" value="PR,<%= a.getName()%>"> <input type=number placeholder="0" id="count" required> <input type="submit" class="submit" value="BookPR"></form></td>
                             </tr>
                         <%}%>
                     </table>
-                </div>*********change to display table***********-->
+                </div>
             <%}%>
         </div>
         <button onclick="window.location.href = './Main'">Return to main page</button>
