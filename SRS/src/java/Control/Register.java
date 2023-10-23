@@ -29,9 +29,10 @@ public class Register extends HttpServlet {
         HttpSession s =request.getSession();
         User u;
         //add psw == psw2 check!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        if(request.getParameter("psw").equal(request.getParameter("psw2"))){
+        if(!request.getParameter("psw").equals(request.getParameter("psw2"))){
             request.setAttribute("msg", "Passwords don't match");
             request.getRequestDispatcher("Register.jsp").forward(request, response);
+            return;
         }
         if(request.getParameter("type").equals("customer")){
             Castomer c =new Castomer(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("email"));
