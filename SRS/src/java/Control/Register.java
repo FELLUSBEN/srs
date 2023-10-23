@@ -40,7 +40,7 @@ public class Register extends HttpServlet {
             u = r;
         }
         
-        s.setAttribute("usr", u);
+        s.setAttribute("user", u);
         response.sendRedirect("Main");
     }
 

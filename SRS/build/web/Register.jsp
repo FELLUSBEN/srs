@@ -11,7 +11,7 @@
         <div class="content">
             <h1>Please fill the form below</h1>      
             <div id="customer-form" class="signup-form">
-            <form>
+            <form method= "POST">
                 <input type="hidden" name="type" value="customer">
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <input type="email" placeholder="Enter Email" name="email" required>
@@ -22,7 +22,7 @@
             </div>
             
             <div id="restaurant-form" class="signup-form" style="display: none">
-            <form>
+            <form method= "POST">
                 <input type="hidden" name="type" value="restaurant">
                 <input type="text" placeholder="Enter Username" name="uname" required>
                 <input type="text" placeholder="Enter restaurant name" name="name" required>
