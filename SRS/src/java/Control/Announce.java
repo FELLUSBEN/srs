@@ -1,6 +1,7 @@
 
 package Control;
 
+import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -26,8 +27,11 @@ public class Announce extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         request.getRequestDispatcher("Announce.jsp").forward(request, response);
-
+        
+        Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),request.getParameter("title"),request.getParameter("desc"));
+        Model.Maneger.Add(a);
+        response.sendRedirect("Main");
+            
     }
 
     @Override

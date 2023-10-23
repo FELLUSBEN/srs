@@ -11,9 +11,9 @@
     <body>
         <div class="content" style="width: 70%">
             <h1>Announce</h1>
-            <form method="POST" action="Announce"> 
+            <form method="POST"> 
                 <input type="text" placeholder="announcement title" name="title" required>
-                <input type="text" placeholder="announcement description" name="type" required>
+                <input type="text" placeholder="announcement description" name="desc" required>
                 <br />
 
                 <button type="submit">announce</button>            
