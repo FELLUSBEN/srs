@@ -21,21 +21,31 @@ public class Maneger {
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
             ResultSet rs = s.executeQuery("SELECT * FROM USERS WHERE USR='"+usr+"' AND PASS='"+pass+"'");
-            
+            User user = null;
             if(rs.next()){
                 String u = rs.getString("USR");
                 String p = rs.getString("PASS");
-                User user = new User(u, p);
-                rs.close();
-                s.close();
-                c.close();
-                return user;
-
+                user = new User(u, p);
+            }else{
+                rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE USR='"+usr+"' AND PASS='"+pass+"'");
+                if(rs.next()){
+                    String u = rs.getString("USR");
+                    String p = rs.getString("PASS");
+                    String n = rs.getString("NAME");
+                    String a = rs.getString("ADDRESS");
+                    String e = rs.getString("EMPLOYEES");
+                    int seats = rs.getInt("SEATS");
+                    int fseats = rs.getInt("FREESEATS");
+                    int pr = rs.getInt("PR");
+                    int fpr = rs.getInt("FREEPR");
+                    String t = rs.getString("TYPE");
+                    user = new Restaurant(u,p,n,a,e,seats,fseats,pr,fpr,t);
+                }
             }
             rs.close();
             s.close();
             c.close();
-            return null;
+            return user;
         }catch(Exception e){
             return null;
         }
