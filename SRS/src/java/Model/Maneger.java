@@ -14,6 +14,7 @@ import java.util.Date;
  * @author razic
  */
 public class Maneger {
+
     public static User checkUsr(String usr, String pass){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
