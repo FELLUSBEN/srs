@@ -19,6 +19,7 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("announcements", Model.Maneger.getAnnouncements());
         request.getRequestDispatcher("Main.jsp").forward(request, response);
     }
 

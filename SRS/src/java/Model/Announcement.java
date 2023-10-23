@@ -14,7 +14,7 @@ public class Announcement {
     private String desc;
     private Date date;
     
-    public Announcement(String usr, String titel, String desc, int date) {
+    public Announcement(String usr, String titel, String desc, long date) {
         this.usr = usr;
         this.titel = titel;
         this.desc = desc;
