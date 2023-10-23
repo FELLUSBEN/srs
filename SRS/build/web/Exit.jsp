@@ -12,12 +12,12 @@
     <body>
         <body>
              <div class="content" style="width: 70%">
-                <%User usr=((User)session.getAttribute("usr"));%>
+                <%User usr=((User)session.getAttribute("user"));%>
                 <header>
                     <div><h1>Hello <%= usr.getUsr()%></h1></div>
                 </header>
                 <%session.invalidate();%>
-                <button onclick="window.location.href = './index'">Exit</button>
+                <button onclick="window.location.href = './index.jsp'">Exit</button>
              </div>
     </body>
     </body>
