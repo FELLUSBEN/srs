@@ -113,7 +113,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITEL,DESC,DATE) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate()+"')");
+            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITLE,DESCRIPTION,DATE) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate().getTime()+")");
             s.close();
             c.close();
         }catch(Exception exeption){}

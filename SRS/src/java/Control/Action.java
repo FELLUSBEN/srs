@@ -18,12 +18,7 @@ public class Action extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if(request.getParameter("act").equals("A")){
-            Announcement a = new Announcement(((User)request.getSession().getAttribute("usr")).getUsr(),request.getParameter("titel"),request.getParameter("desc"));
-            Model.Maneger.Add(a);
-            request.getRequestDispatcher("Main").forward(request, response);
-        }
-        else if(request.getParameter("act").equals("S")){
+        if(request.getParameter("act").equals("S")){
             String[] sparams={request.getParameter("name"), request.getParameter("desc")};
             request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
             ArrayList<Restaurant> rs= Model.Maneger.Search(sparams[0], sparams[1]);
