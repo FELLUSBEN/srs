@@ -27,9 +27,9 @@ public class Announce extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Model.Maneger maneger = Model.Maneger.getInstance();
         Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),request.getParameter("title"),request.getParameter("desc"));
-        Model.Maneger.Add(a);
+        maneger.Add(a);
         response.sendRedirect("Main");
             
     }
