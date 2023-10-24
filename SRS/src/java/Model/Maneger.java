@@ -14,8 +14,19 @@ import java.util.Date;
  * @author razic
  */
 public class Maneger {
-
-    public static User checkUsr(String usr, String pass){
+    
+    private static Maneger single_instance = null;
+    
+    private Maneger(){}
+    
+    public static synchronized Maneger getInstance(){
+        if (single_instance == null)
+            single_instance = new Maneger();
+        
+        return single_instance;
+    }
+    
+    public User checkUsr(String usr, String pass){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -52,7 +63,7 @@ public class Maneger {
         }
     }
     
-    public static Restaurant find(String name, String type){
+    public Restaurant find(String name, String type){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -83,7 +94,7 @@ public class Maneger {
         }
     }
     
-    public static void Add(Castomer x){
+    public void Add(Castomer x){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -95,7 +106,7 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
-    public static void Add(Restaurant r){
+    public void Add(Restaurant r){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -107,7 +118,7 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
-    public static void Add(Announcement a){
+    public void Add(Announcement a){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -119,7 +130,7 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
-    public static void Update(Castomer c1,Castomer c2){
+    public void Update(Castomer c1,Castomer c2){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -131,7 +142,7 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
-    public static void Update(Restaurant r1,Restaurant r2){
+    public void Update(Restaurant r1,Restaurant r2){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -143,7 +154,7 @@ public class Maneger {
         }catch(Exception exeption){}
     }
 
-    public static boolean isExists(Castomer c){
+    public boolean isExists(Castomer c){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlCn="jdbc:derby://localhost:1527/SRSDB";
@@ -161,7 +172,7 @@ public class Maneger {
         }catch(Exception exception){return false;}
     }
     
-    public static boolean isExists(Restaurant r){
+    public boolean isExists(Restaurant r){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlCn="jdbc:derby://localhost:1527/SRSDB";
@@ -179,7 +190,7 @@ public class Maneger {
         }catch(Exception exception){return false;}
     }
     
-    public static ArrayList<Restaurant> Search(String name, String type){
+    public ArrayList<Restaurant> Search(String name, String type){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -202,7 +213,7 @@ public class Maneger {
         }
     }
     
-    public static void Delete(Castomer c){
+    public void Delete(Castomer c){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -217,7 +228,7 @@ public class Maneger {
         }
     }
     
-    public static void Delete(Restaurant r){
+    public void Delete(Restaurant r){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
@@ -232,7 +243,7 @@ public class Maneger {
         }
     }
     
-    public static ArrayList<Announcement> getAnnouncements(){
+    public ArrayList<Announcement> getAnnouncements(){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";

@@ -27,6 +27,8 @@ public class Register extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession s =request.getSession();
+        Model.Maneger maneger = Model.Maneger.getInstance();
+
         User u;
         //add psw == psw2 check!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(!request.getParameter("psw").equals(request.getParameter("psw2"))){
@@ -36,12 +38,12 @@ public class Register extends HttpServlet {
         }
         if(request.getParameter("type").equals("customer")){
             Castomer c =new Castomer(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("email"));
-            Model.Maneger.Add(c);
+            maneger.Add(c);
             u = c;
         } 
         else{
             Restaurant r =new Restaurant(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("name"),request.getParameter("address"), request.getParameter("employees"), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("pr")), Integer.parseInt(request.getParameter("pr")), request.getParameter("Ftype"));
-            Model.Maneger.Add(r);
+            maneger.Add(r);
             u = r;
         }
         

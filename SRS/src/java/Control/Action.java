@@ -18,10 +18,11 @@ public class Action extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Model.Maneger maneger = Model.Maneger.getInstance();
         if(request.getParameter("act").equals("S")){
             String[] sparams={request.getParameter("name"), request.getParameter("desc")};
             request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
-            ArrayList<Restaurant> rs= Model.Maneger.Search(sparams[0], sparams[1]);
+            ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
             request.setAttribute("content", (rs == null)? "X":rs); 
             request.getRequestDispatcher("Display.jsp").forward(request, response);
         }else{
@@ -38,13 +39,13 @@ public class Action extends HttpServlet {
                     Restaurant r1 = new Restaurant(params[1],params[2],params[3],params[4],params[5],Integer.parseInt(params[6]),Integer.parseInt(params[7]),Integer.parseInt(params[8]),Integer.parseInt(params[9]),params[5]);
                     Restaurant r2 = new Restaurant(params[1],params[2],request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),Integer.parseInt(request.getParameter("Fseats")),Integer.parseInt(request.getParameter("pr")),Integer.parseInt(request.getParameter("Fpr")),request.getParameter("Ftype"));
                     
-                    if(Model.Maneger.isExists(r2)){
-                        Model.Maneger.Add(r1);
+                    if(maneger.isExists(r2)){
+                        maneger.Add(r1);
                         request.setAttribute("msg", "exist");
                         request.getRequestDispatcher("Massege").forward(request, response);
                     }else{
-                        Model.Maneger.Delete(r1);
-                        Model.Maneger.Add(r2);
+                        maneger.Delete(r1);
+                        maneger.Add(r2);
 //                        ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);
 //                        request.setAttribute("content", (rs == null)? "X":rs); 
 //                        request.getRequestDispatcher("Display.jsp").forward(request, response);        ******might be helpfull*******
@@ -52,16 +53,16 @@ public class Action extends HttpServlet {
                 }
             }
             else if(params[0].equals("B")){
-                Restaurant r = Model.Maneger.find(params[1],params[2]);
+                Restaurant r = maneger.find(params[1],params[2]);
                 if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
                     request.setAttribute("msg", "no_room");
                     request.getRequestDispatcher("Massege").forward(request, response);
                 }
                 else{
-                    Model.Maneger.Delete(r);
+                    maneger.Delete(r);
                     r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
                     r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
-                    Model.Maneger.Add(r);
+                    maneger.Add(r);
                 }
             }
 //            else{

@@ -36,8 +36,9 @@ public class Login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session =request.getSession();
+        Model.Maneger maneger = Model.Maneger.getInstance();
         User u;
-        u = Model.Maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
+        u = maneger.checkUsr(request.getParameter("usr"), request.getParameter("pass"));
         if(u == null){
             request.setAttribute("msg", "error");
             request.getRequestDispatcher("Login.jsp").forward(request, response);
