@@ -12,6 +12,7 @@
         <div class="content" style="width: 70%">
             <h1>Update</h1>
             <form method="POST" action="Update"> 
+                <input type="text" placeholder="Enter Restaurant Name" name="name">
                 <input type="text" placeholder="Enter Address" name="address">
                 <input type="text" placeholder="Enter employees seperated by [,]" name="employees">
                 <input type="number" placeholder="Enter number of seats" name="seats">

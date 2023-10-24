@@ -32,24 +32,7 @@ public class Action extends HttpServlet {
                 sparams = s;
             }
             if(params[0].equals("U")){
-                if(request.getParameter("name") == null)
-                    request.getRequestDispatcher("Update.jsp").forward(request, response);
-                else{
-                    Restaurant r1 = new Restaurant(params[1],params[2],params[3],params[4],params[5],Integer.parseInt(params[6]),Integer.parseInt(params[7]),Integer.parseInt(params[8]),Integer.parseInt(params[9]),params[5]);
-                    Restaurant r2 = new Restaurant(params[1],params[2],request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),Integer.parseInt(request.getParameter("Fseats")),Integer.parseInt(request.getParameter("pr")),Integer.parseInt(request.getParameter("Fpr")),request.getParameter("Ftype"));
-                    
-                    if(Model.Maneger.isExists(r2)){
-                        Model.Maneger.Add(r1);
-                        request.setAttribute("msg", "exist");
-                        request.getRequestDispatcher("Massege").forward(request, response);
-                    }else{
-                        Model.Maneger.Delete(r1);
-                        Model.Maneger.Add(r2);
-//                        ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);
-//                        request.setAttribute("content", (rs == null)? "X":rs); 
-//                        request.getRequestDispatcher("Display.jsp").forward(request, response);        ******might be helpfull*******
-                    }
-                }
+                
             }
             else if(params[0].equals("B")){
                 Restaurant r = Model.Maneger.find(params[1],params[2]);
