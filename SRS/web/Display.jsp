@@ -2,6 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
 <%@ page import="Model.*" %>
+<%@include file="Header.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,9 +10,8 @@
         <title>Display</title>
     </head>
     <body>
-        <%@include file="Header.jsp"%>
-        <div>
-            <h1>search!</h1>
+        
+        <div class="content" style="width: 70%">
             <%if(request.getAttribute("content") == null){%>
                 <div class="content" style="width: 70%">
                     <h1>Search</h1>
@@ -51,6 +51,5 @@
                 </div>
             <%}%>
         </div>
-        <button onclick="window.location.href = './Main'">Return to main page</button>
     </body>
 </html>
