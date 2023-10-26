@@ -25,10 +25,13 @@ public class Update extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Restaurant r1 = (Restaurant)request.getAttribute("user");
+        Model.Maneger maneger = Model.Maneger.getInstance();
+        
+        Restaurant r1 = (Restaurant)request.getSession().getAttribute("user");
         Restaurant r2 = new Restaurant(r1.getUsr(),r1.getPass(),request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),r1.getFreeSeats(),Integer.parseInt(request.getParameter("pr")),r1.getFreePR(),request.getParameter("Ftype"));
 
-        Model.Maneger.Update(r1, r2);
+        maneger.Update(r1, r2);
+        response.sendRedirect("Main");
     }
 
 
