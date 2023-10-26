@@ -14,12 +14,6 @@
         
         <div class="content" style="width: 70%">
             <h1>Please select an option</h1>        
-            
-            <div class="button" id="button-1">
-                <div id="underline"></div>
-                <a href="Search">Search for restaurant</a>
-            </div>
-            
             <% if(user instanceof Model.Restaurant){ %>
                 <div class="button" id="button-1">
                 <div id="underline"></div>
@@ -31,7 +25,13 @@
                 <a href="Announce">Announce</a>
                 </div>
                 
+            <%}else{%>
+            <div class="button" id="button-1">
+                <div id="underline"></div>
+                <a href="Search">Search for restaurant</a>
+            </div>
             <%}%>
+            
             
             <h2>Announcements</h2>
             
