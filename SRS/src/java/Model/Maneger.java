@@ -148,7 +148,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("UPDATE RESTAURANT SET NAME='"+r2.getName()+"', ADDRESS='"+r2.getAddress()+"', EMPLOYEES="+r2.getEmployees()+", SEATS=" + r2.getSeats()+ ", FREESEATS=" + r2.getFreeSeats()+", PR=" + r2.getPr()+ ", FREEPR=" + r2.getFreePR()+ ", TYPE='" + r2.getType()+"' WHERE USR='"+r1.getUsr()+"' AND PASS='"+r1.getPass()+"'");
+            s.executeUpdate("UPDATE RESTAURANT SET NAME='"+r2.getName()+"', ADDRESS='"+r2.getAddress()+"', EMPLOYEES='"+r2.getEmployees()+"', SEATS=" + r2.getSeats()+ ", FREESEATS=" + r2.getFreeSeats()+", PR=" + r2.getPr()+ ", FREEPR=" + r2.getFreePR()+ ", TYPE='" + r2.getType()+"' WHERE USR='"+r1.getUsr()+"' AND PASS='"+r1.getPass()+"'");
             s.close();
             c.close();
         }catch(Exception exeption){}
@@ -196,10 +196,10 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE RESTAURANT.NAME="+name+" OR RESTAURANT.TYPE ="+type);
+            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE RESTAURANT.NAME='"+name+"' OR RESTAURANT.TYPE ='"+type+"'");
             ArrayList<Restaurant> restaurantList = new ArrayList<>();
             while(rs.next()){
-                restaurantList.add(new Restaurant("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("DESC")));
+                restaurantList.add(new Restaurant("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("TYPE")));
             }
             rs.close();
             s.close();

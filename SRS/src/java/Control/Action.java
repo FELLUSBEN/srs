@@ -19,64 +19,33 @@ public class Action extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Model.Maneger maneger = Model.Maneger.getInstance();
-        if(request.getParameter("act").equals("S")){
-            String[] sparams={request.getParameter("name"), request.getParameter("desc")};
-            request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
-            ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
-            request.setAttribute("content", (rs == null)? "X":rs); 
-            request.getRequestDispatcher("Display.jsp").forward(request, response);
-        }else{
-            String[] params=request.getParameter("act").split(",");
-            String[] sparams=((String)request.getSession().getAttribute("search")).split(",");
-            if(sparams.length == 0){
-                String[] s = {"" , ""};
-                sparams = s;
+     
+        String[] params=request.getParameter("act").split(",");
+        String[] sparams=((String)request.getSession().getAttribute("search")).split(",");
+        if(sparams.length == 0){
+            String[] s = {"" , ""};
+            sparams = s;
+        }
+        else if(params[0].equals("B")){
+            Restaurant r = maneger.find(params[1],params[2]);
+            if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
+                request.setAttribute("msg", "no_room");
+                request.getRequestDispatcher("Massege").forward(request, response);
             }
-            if(params[0].equals("U")){
-<<<<<<< HEAD
-                
-=======
-                if(request.getParameter("name") == null)
-                    request.getRequestDispatcher("Update.jsp").forward(request, response);
-                else{
-                    Restaurant r1 = new Restaurant(params[1],params[2],params[3],params[4],params[5],Integer.parseInt(params[6]),Integer.parseInt(params[7]),Integer.parseInt(params[8]),Integer.parseInt(params[9]),params[5]);
-                    Restaurant r2 = new Restaurant(params[1],params[2],request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),Integer.parseInt(request.getParameter("Fseats")),Integer.parseInt(request.getParameter("pr")),Integer.parseInt(request.getParameter("Fpr")),request.getParameter("Ftype"));
-                    
-                    if(maneger.isExists(r2)){
-                        maneger.Add(r1);
-                        request.setAttribute("msg", "exist");
-                        request.getRequestDispatcher("Massege").forward(request, response);
-                    }else{
-                        maneger.Delete(r1);
-                        maneger.Add(r2);
-//                        ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);
-//                        request.setAttribute("content", (rs == null)? "X":rs); 
-//                        request.getRequestDispatcher("Display.jsp").forward(request, response);        ******might be helpfull*******
-                    }
-                }
->>>>>>> 4efdb6eb55d761603f8f7f34061d5be66def0f2a
+            else{
+                maneger.Delete(r);
+                r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
+                r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
+                maneger.Add(r);
             }
-            else if(params[0].equals("B")){
-                Restaurant r = maneger.find(params[1],params[2]);
-                if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
-                    request.setAttribute("msg", "no_room");
-                    request.getRequestDispatcher("Massege").forward(request, response);
-                }
-                else{
-                    maneger.Delete(r);
-                    r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
-                    r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
-                    maneger.Add(r);
-                }
-            }
+        }
 //            else{
 //                Model.Maneger.Delete(new Restaurant(params[1],params[2],"","","",0,0,0,0,""));
 //                ArrayList<Restaurant> rs= Model.Maneger.Serch(params[1] ,sparams[0], sparams[1]);
 //                request.setAttribute("content", (rs == null)? "X":rs); 
 //                request.getRequestDispatcher("Display.jsp").forward(request, response);
 //            } ******optional: add delete restaurant
-        }
-        
+
         response.sendRedirect("Main");
     }
 
@@ -93,7 +62,7 @@ public class Action extends HttpServlet {
         }else if(request.getParameter("act").equals("S")){
             request.getRequestDispatcher("Display.jsp").forward(request, response);
         }
-    } //diside if Announcement.jsp will add announcement for restaurant and display them for castomer, or make to diffrent "Announcement.jsp"
+    }
 
 
     @Override

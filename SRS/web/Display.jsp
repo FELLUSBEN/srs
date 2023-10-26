@@ -1,6 +1,7 @@
-
+<% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.ArrayList" %>
+<%@ page import="Model.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,16 +13,17 @@
         <div>
             <h1>search!</h1>
             <%if(request.getAttribute("content") == null){%>
-<!--                <div class="in">
-                    <form action="Action">
-                        <label>Owner ID:</label><input type="text" name="id"><br><br>
-                        <label>AND</label><input type="radio" name="or" value="false"><br>
-                        <label>OR</label><input type="radio" name="or" value="true"><br>
-                        <label>Acount number:</label><input type="number" min="0" name="num"><br><br>
-                        <input type="hidden" name="act" value="S">
-                        <input class="submit" type="submit" value="Search""><br><br> comment 
+                <div class="content" style="width: 70%">
+                    <h1>Search</h1>
+                    <form method="POST" action="Search"> 
+                        <input type="text" placeholder="restaurant name" name="name">
+                        <input type="text" placeholder="restaurant type" name="type">
+                        <br />
+
+                        <button type="submit">search</button>            
+
                     </form>
-                </div> ********change to search form******-->
+                </div>
             <%}else if(request.getAttribute("content").equals("X")){%>
                 <h1>no restaurants found :(</h1>
             <%}else{%>
