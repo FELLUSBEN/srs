@@ -13,19 +13,22 @@ public class Announcement {
     private String titel;
     private String desc;
     private Date date;
+    private String dest;
     
-    public Announcement(String usr, String titel, String desc, long date) {
+    public Announcement(String usr, String titel, String desc, long date, String dest) {
         this.usr = usr;
         this.titel = titel;
         this.desc = desc;
         this.date = new Date(date);
+        this.dest=dest;
     }
 
-    public Announcement(String usr, String titel, String desc) {
+    public Announcement(String usr, String titel, String desc, String dest) {
         this.usr = usr;
         this.titel = titel;
         this.desc = desc;
         this.date = new Date();
+        this.dest = dest;
     }
 
     public Date getDate() {
@@ -42,6 +45,10 @@ public class Announcement {
 
     public String getUsr() {
         return usr;
+    }
+
+    public String getDest() {
+        return dest;
     }
      
     

@@ -4,6 +4,7 @@
  */
 package Control;
 
+import Model.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,7 +21,7 @@ public class Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Model.Maneger maneger = Model.Maneger.getInstance();
-        request.setAttribute("announcements", maneger.getAnnouncements());
+        request.setAttribute("announcements", maneger.getAnnouncements((User)request.getSession().getAttribute("user")));
         request.getRequestDispatcher("Main.jsp").forward(request, response);
     }
 
