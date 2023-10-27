@@ -9,8 +9,13 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.params.ParameterizedTest;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import java.sql.*;
+
+
 
 /**
  *
@@ -37,22 +42,14 @@ public class ManegerTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of getInstance method, of class Maneger.
-     */
     @Test
     public void testGetInstance() {
         System.out.println("getInstance");
         Maneger expResult = null;
         Maneger result = Maneger.getInstance();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotEquals(expResult, result);
     }
 
-    /**
-     * Test of checkUsr method, of class Maneger.
-     */
     @Test
     public void testCheckUsr() {
         System.out.println("checkUsr");
@@ -61,14 +58,9 @@ public class ManegerTest {
         Maneger instance = null;
         User expResult = null;
         User result = instance.checkUsr(usr, pass);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertNotEquals(expResult, result);
     }
 
-    /**
-     * Test of find method, of class Maneger.
-     */
     @Test
     public void testFind() {
         System.out.println("find");
@@ -82,9 +74,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Add method, of class Maneger.
-     */
     @Test
     public void testAdd_Castomer() {
         System.out.println("Add");
@@ -94,10 +83,7 @@ public class ManegerTest {
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
     }
-
-    /**
-     * Test of Add method, of class Maneger.
-     */
+    
     @Test
     public void testAdd_Restaurant() {
         System.out.println("Add");
@@ -108,9 +94,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Add method, of class Maneger.
-     */
     @Test
     public void testAdd_Announcement() {
         System.out.println("Add");
@@ -121,9 +104,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Update method, of class Maneger.
-     */
     @Test
     public void testUpdate_Castomer_Castomer() {
         System.out.println("Update");
@@ -135,9 +115,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Update method, of class Maneger.
-     */
     @Test
     public void testUpdate_Restaurant_Restaurant() {
         System.out.println("Update");
@@ -149,9 +126,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isExists method, of class Maneger.
-     */
     @Test
     public void testIsExists_Castomer() {
         System.out.println("isExists");
@@ -164,9 +138,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of isExists method, of class Maneger.
-     */
     @Test
     public void testIsExists_Restaurant() {
         System.out.println("isExists");
@@ -179,9 +150,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Search method, of class Maneger.
-     */
     @Test
     public void testSearch() {
         System.out.println("Search");
@@ -195,9 +163,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Delete method, of class Maneger.
-     */
     @Test
     public void testDelete_Castomer() {
         System.out.println("Delete");
@@ -208,9 +173,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of Delete method, of class Maneger.
-     */
     @Test
     public void testDelete_Restaurant() {
         System.out.println("Delete");
@@ -221,9 +183,6 @@ public class ManegerTest {
         fail("The test case is a prototype.");
     }
 
-    /**
-     * Test of getAnnouncements method, of class Maneger.
-     */
     @Test
     public void testGetAnnouncements() {
         System.out.println("getAnnouncements");
