@@ -38,9 +38,13 @@
             <%if(request.getAttribute("announcements") != null){%>
             <table style="width:100%;">
                 <tr>
+                    <% if(user instanceof Model.Restaurant){ %>
+                    <th>User</th>
+                    <%}else{%>
                     <th>Restaurant</th>
+                    <%}%>
                     <th>Title</th>
-                    <th>Announcement</th>
+                    <th>Description</th>
                     <th>Date</th>
                 </tr>
                 <%for(Model.Announcement a:(ArrayList<Model.Announcement>)request.getAttribute("announcements")){%>
@@ -49,6 +53,9 @@
                     <td><%= a.getTitel()%></td>
                     <td><%= a.getDesc()%></td>
                     <td><%= a.getDate()%></td>
+                    <% if(user instanceof Model.Restaurant){ %>
+                    <td><form action="?" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getUsr()%>,<%= a.getTitel()%>,<%= a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Remove Entry"></form></td> <!--remove specific entry-->
+                    <%}%>
                 </tr>
                 <%}%>
             </table>

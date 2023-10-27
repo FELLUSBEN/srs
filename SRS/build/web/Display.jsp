@@ -13,17 +13,16 @@
         
         <div class="content" style="width: 70%">
             <%if(request.getAttribute("content") == null){%>
-                <div class="content" style="width: 70%">
-                    <h1>Search</h1>
-                    <form method="POST" action="Search"> 
-                        <input type="text" placeholder="restaurant name" name="name">
-                        <input type="text" placeholder="restaurant type" name="type">
-                        <br />
+                <h1>Search</h1>
+                <form method="POST" action="Search"> 
+                    <input type="text" placeholder="restaurant name" name="name">
+                    <input type="text" placeholder="restaurant type" name="type">
+                    <br />
 
-                        <button type="submit">search</button>            
+                    <button type="submit">search</button>            
 
-                    </form>
-                </div>
+                </form>
+
             <%}else if(request.getAttribute("content").equals("X")){%>
                 <h1>no restaurants found :(</h1>
             <%}else{%>
