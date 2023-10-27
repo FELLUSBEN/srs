@@ -243,16 +243,23 @@ public class Maneger {
         }
     }
     
-    public ArrayList<Announcement> getAnnouncements(){
+    public ArrayList<Announcement> getAnnouncements(User u){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS");
+            ResultSet rs;
+            
+            if(u instanceof Restaurant){
+                rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS WHERE DEST='"+u.getUsr()+"'");
+            }else{
+                rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS WHERE DEST='x'");
+            }
+            
             ArrayList<Announcement> Announcements = new ArrayList<>();
             while(rs.next()){
-                Announcements.add(new Announcement(rs.getString("USR"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getLong("DATE")));
+                Announcements.add(new Announcement(rs.getString("USR"),rs.getString("TITLE"),rs.getString("DESCRIPTION"),rs.getLong("DATE"),rs.getString("DEST")));
             }
             rs.close();
             s.close();

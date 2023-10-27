@@ -188,7 +188,7 @@ public class ManegerTest {
         System.out.println("getAnnouncements");
         Maneger instance = null;
         ArrayList<Announcement> expResult = null;
-        ArrayList<Announcement> result = instance.getAnnouncements();
+        ArrayList<Announcement> result = instance.getAnnouncements(new User("stam","check"));
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");
