@@ -243,6 +243,21 @@ public class Maneger {
         }
     }
     
+    public void Delete(Announcement a){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlc = "jdbc:derby://localhost:1527/SRSDB";
+            Connection c = DriverManager.getConnection(urlc, "root", "root");
+            Statement s = c.createStatement();
+            s.executeUpdate("DELETE FROM RESTAURANT WHERE USR='"+a.getUsr()+"' AND DATE ='" + a.getDate().toString()+"'"+" AND DEST = '" + a.getDest() + "'");
+            s.close();
+            c.close();
+            return;
+        }catch(Exception exception){
+            return;
+        }
+    }
+    
     public ArrayList<Announcement> getAnnouncements(User u){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
