@@ -54,7 +54,7 @@
                     <td><%= a.getDesc()%></td>
                     <td><%= a.getDate()%></td>
                     <% if(user instanceof Model.Restaurant){ %>
-                    <td><form action="?" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getUsr()%>,<%= a.getTitel()%>,<%= a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Remove Entry"></form></td> <!--remove specific entry-->
+                    <td><form method="POST" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getUsr()%>,<%= a.getTitel()%>,<%= a.getDesc()%>,<%= a.getDate()%>"><input type="submit" class="submit" value="Remove Entry"></form></td> <!--remove specific entry-->
                     <%}%>
                 </tr>
                 <%}%>
