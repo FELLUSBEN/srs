@@ -42,17 +42,24 @@ public class Search extends HttpServlet {
 //                sparams = s;
 //            }
             if(params[0].equals("Seats")){
-                Restaurant r = maneger.find(params[1],params[2]);
-                if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
+                Restaurant r = maneger.find(params[1]);
+                int seats= Integer.parseInt(request.getParameter("count"));
+                if(r.getFreeSeats()- seats < 0){
                     request.setAttribute("msg", "no_room");
                     request.getRequestDispatcher("Massege").forward(request, response);//add massege
                 }
                 else{
-                    maneger.Delete(r);
-                    r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
-                    r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
-                    maneger.Add(r);
+                    Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats() - seats,r.getPr(),r.getFreePR(),r.getType());
+
+                    maneger.Update(r, r2);
+                    
+                    Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),"seats",request.getParameter("count"),params[1]);
+                    maneger.Add(a);
+                    
+                    response.sendRedirect("Main");
                 }
+            }else if(params[0].equals("pr")){
+                
             }
         }
         

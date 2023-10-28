@@ -65,10 +65,10 @@ public class ManegerTest {
     public void testFind() {
         System.out.println("find");
         String name = "";
-        String type = "";
+        //String type = "";//find signecher has bean changed
         Maneger instance = null;
         Restaurant expResult = null;
-        Restaurant result = instance.find(name, type);
+        Restaurant result = instance.find(name);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         fail("The test case is a prototype.");

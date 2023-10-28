@@ -63,13 +63,13 @@ public class Maneger {
         }
     }
     
-    public Restaurant find(String name, String type){
+    public Restaurant find(String name){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE NAME='"+name+"' AND TYPE='"+type+"'");
+            ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE NAME='"+name+"'");
             
             Restaurant r = null;
             if(rs.next()){

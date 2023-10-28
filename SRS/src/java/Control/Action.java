@@ -27,7 +27,7 @@ public class Action extends HttpServlet {
             sparams = s;
         }
         else if(params[0].equals("B")){
-            Restaurant r = maneger.find(params[1],params[2]);
+            Restaurant r = maneger.find(params[1]);
             if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
                 request.setAttribute("msg", "no_room");
                 request.getRequestDispatcher("Massege").forward(request, response);
