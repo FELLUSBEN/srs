@@ -27,6 +27,9 @@
                 <h1>no restaurants found :(</h1>
             <%}else{%>
                 <div>
+                    <% if (request.getAttribute("err") != null){ %>
+                    <h2 style="color: red;"><%= request.getAttribute("err") %></h2>
+                    <%}%>
                     <table>
                         <tr>
                             <th>Name</th>
