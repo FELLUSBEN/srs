@@ -29,6 +29,9 @@ public class Main extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        // TODO: remove announcement from table
+        
         request.getRequestDispatcher("Action").forward(request, response);
     }
 
