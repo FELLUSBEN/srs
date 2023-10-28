@@ -28,11 +28,34 @@ public class Search extends HttpServlet {
             throws ServletException, IOException {
         Model.Maneger maneger = Model.Maneger.getInstance();
         
-        String[] sparams={request.getParameter("name"), request.getParameter("type")};
-        request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
-        ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
-        request.setAttribute("content", (rs == null)? "X":rs); 
-        request.getRequestDispatcher("Display.jsp").forward(request, response);
+        if (request.getAttribute("act") == null){
+            String[] sparams={request.getParameter("name"), request.getParameter("type")};
+            request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
+            ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
+            request.setAttribute("content", (rs == null)? "X":rs); 
+            request.getRequestDispatcher("Display.jsp").forward(request, response);
+        }else{
+            String[] params=request.getParameter("act").split(",");
+//            String[] sparams=((String)request.getSession().getAttribute("search")).split(",");*************might be needed
+//            if(sparams.length == 0){
+//                String[] s = {"" , ""};
+//                sparams = s;
+//            }
+            if(params[0].equals("Seats")){
+                Restaurant r = maneger.find(params[1],params[2]);
+                if(r.getFreeSeats()- Integer.parseInt(params[3]) < 0 || r.getFreePR()- Integer.parseInt(params[4]) < 0){
+                    request.setAttribute("msg", "no_room");
+                    request.getRequestDispatcher("Massege").forward(request, response);//add massege
+                }
+                else{
+                    maneger.Delete(r);
+                    r.setFreePR(r.getFreePR()- Integer.parseInt(params[4]));
+                    r.setFreeSeats(r.getFreeSeats()- Integer.parseInt(params[3]));
+                    maneger.Add(r);
+                }
+            }
+        }
+        
 //        HttpSession session = request.getSession();
 //        //get all restaurants with the parameters sent by the client - name and type
 //        String name = request.getParameter("res_name");
