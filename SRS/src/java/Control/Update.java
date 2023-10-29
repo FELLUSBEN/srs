@@ -28,7 +28,7 @@ public class Update extends HttpServlet {
         Model.Maneger maneger = Model.Maneger.getInstance();
         
         Restaurant r1 = (Restaurant)request.getSession().getAttribute("user");
-        Restaurant r2 = new Restaurant(r1.getUsr(),r1.getPass(),request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),r1.getFreeSeats(),Integer.parseInt(request.getParameter("pr")),r1.getFreePR(),request.getParameter("Ftype"));
+        Restaurant r2 = new Restaurant(r1.getUsr(),r1.getPass(),request.getParameter("name"),request.getParameter("address"),request.getParameter("employees"),Integer.parseInt(request.getParameter("seats")),r1.getFreeSeats()+Integer.parseInt(request.getParameter("seats"))-r1.getSeats(),Integer.parseInt(request.getParameter("pr")),r1.getFreePR()+Integer.parseInt(request.getParameter("pr"))-r1.getPr(),request.getParameter("Ftype"));
 
         maneger.Update(r1, r2);
         response.sendRedirect("Main");

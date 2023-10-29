@@ -17,6 +17,7 @@ public class Restaurant extends User{
     private int pr;
     private int freePR;
     private String type;
+    private static int dayOfYear;
 
     public Restaurant(String usr, String pass, String name, String address, String employees, int seats, int freeSeats, int pr, int freePR, String type) {
         super(usr, pass);
@@ -70,5 +71,11 @@ public class Restaurant extends User{
         this.freeSeats = freeSeats;
     }
 
-    
+    public static int getDayOfYear(){
+        return dayOfYear;
+    }
+
+    public static void setDayOfYear(int day) {
+        dayOfYear = day;
+    }
 }

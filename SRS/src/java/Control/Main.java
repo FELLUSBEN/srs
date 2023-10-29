@@ -28,6 +28,15 @@ public class Main extends HttpServlet {
             maneger.DeleteDate(new Date().getTime());
             Announcement.setDayOfYear(Calendar.DAY_OF_YEAR);
         }
+        if(request.getSession().getAttribute("user") instanceof Restaurant){
+              if(Calendar.DAY_OF_YEAR != Restaurant.getDayOfYear()){
+                    Restaurant r=(Restaurant)request.getSession().getAttribute("user");
+                    r.setFreeSeats(r.getSeats());
+                    r.setFreePR(r.getPr());
+                    maneger.Update(r, r);
+                    Restaurant.setDayOfYear(Calendar.DAY_OF_YEAR);
+                }  
+        }
         
         request.setAttribute("announcements", maneger.getAnnouncements((User)request.getSession().getAttribute("user")));
         request.getRequestDispatcher("Main.jsp").forward(request, response);

@@ -1,7 +1,8 @@
 <% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ include file = "Header.jsp" %>
-<jsp:useBean id="user" class="Model.User" scope="session" />
+<%@ page import="Model.*" %>
+<%Restaurant user=(Restaurant)session.getAttribute("user");%>
 
 
 <!DOCTYPE html>

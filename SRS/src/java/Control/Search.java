@@ -70,7 +70,7 @@ public class Search extends HttpServlet {
 
                     maneger.Update(r, r2);
                     
-                    Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),"seats",request.getParameter("count"),params[1]);
+                    Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),"pr",request.getParameter("count"),params[1]);
                     maneger.Add(a);
                     
                     response.sendRedirect("Main");
