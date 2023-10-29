@@ -45,7 +45,7 @@ public class Search extends HttpServlet {
                 Restaurant r = maneger.find(params[1]);
                 int seats= Integer.parseInt(request.getParameter("count"));
                 if(r.getFreeSeats()- seats < 0){
-                    request.setAttribute("msg", "no_room");
+                    request.setAttribute("err", "there is not enough space in the restaurant");
                     request.getRequestDispatcher("Massege").forward(request, response);//add massege
                 }
                 else{
