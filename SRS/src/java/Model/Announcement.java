@@ -56,8 +56,8 @@ public class Announcement {
         return dayOfYear;
     }
 
-    public static void setDayOfYear(int dayOfYear) {
-        Announcement.dayOfYear = dayOfYear;
+    public static void setDayOfYear(int day) {
+        dayOfYear = day;
     }
     
 }

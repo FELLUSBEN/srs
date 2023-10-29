@@ -249,7 +249,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("DELETE FROM ANNOUNCEMENT WHERE USR='"+a.getUsr()+"' AND DATE =" + a.getDate()+" AND DEST = '" + a.getDest() + "'");
+            s.executeUpdate("DELETE FROM ANNOUNCEMENTS WHERE USR='"+a.getUsr()+"' AND DATE =" + a.getDate()+" AND DEST = '" + a.getDest() + "'");
             s.close();
             c.close();
             return;
@@ -264,7 +264,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("DELETE * FROM ANNOUNCEMENT WHERE DATE < "+time);
+            s.executeUpdate("DELETE * FROM ANNOUNCEMENTS WHERE DATE < "+time);
             s.close();
             c.close();
             return;
