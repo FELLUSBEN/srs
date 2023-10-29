@@ -46,20 +46,23 @@ public class Main extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        Model.Maneger maneger = Model.Maneger.getInstance();
         // TODO: remove announcement from table
         if (request.getParameter("act") != null){
-            String params[] = request.getParameter("act").split(',');
-            if (params[1] == "pr"){
-                
+            String params[] = request.getParameter("act").split(",");
+            Announcement a = new Announcement(params[0],params[1],params[2],Long.parseLong(params[3]),params[4]);
+            Restaurant r = (Restaurant)request.getSession().getAttribute("user");
+            if (params[1].equals("pr")){
+                r.setFreePR(r.getFreePR()+Integer.parseInt(params[2]));
+                maneger.Update(r, r);
+                maneger.Delete(a);
             }else{
-                
+                r.setFreeSeats(r.getFreeSeats()+Integer.parseInt(params[2]));
+                maneger.Update(r, r);
+                maneger.Delete(a);
             }
+            response.sendRedirect("Main");
         }
-           
-        
-        
-        request.getRequestDispatcher("Action").forward(request, response);
     }
 
     @Override

@@ -36,17 +36,20 @@ public class Search extends HttpServlet {
             request.getRequestDispatcher("Display.jsp").forward(request, response);
         }else{
             String[] params=request.getParameter("act").split(",");
-//            String[] sparams=((String)request.getSession().getAttribute("search")).split(",");*************might be needed
-//            if(sparams.length == 0){
-//                String[] s = {"" , ""};
-//                sparams = s;
-//            }
+            String[] sparams=((String)request.getSession().getAttribute("search")).split(",");
+            if(sparams.length == 0){
+                String[] s = {"" , ""};
+                sparams = s;
+            }
             if(params[0].equals("SEATS")){
                 Restaurant r = maneger.find(params[1]);
                 int seats= Integer.parseInt(request.getParameter("count"));
                 if(r.getFreeSeats()- seats < 0){
                     request.setAttribute("err", "there is not enough space in the restaurant");
-                    request.getRequestDispatcher("Massege").forward(request, response);//add massege
+                    ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
+                    request.setAttribute("content", (rs == null)? "X":rs); 
+                    request.getRequestDispatcher("Display.jsp").forward(request, response);
+
                 }
                 else{
                     Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats() - seats,r.getPr(),r.getFreePR(),r.getType());
@@ -62,8 +65,11 @@ public class Search extends HttpServlet {
                 Restaurant r = maneger.find(params[1]);
                 int pr= Integer.parseInt(request.getParameter("count"));
                 if(r.getFreePR()- pr < 0){
-                    request.setAttribute("msg", "no_room");
-                    request.getRequestDispatcher("Massege").forward(request, response);//add massege
+                    request.setAttribute("err", "there is not enough space in the restaurant");
+                    ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
+                    request.setAttribute("content", (rs == null)? "X":rs); 
+                    request.getRequestDispatcher("Display.jsp").forward(request, response);
+
                 }
                 else{
                     Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats(),r.getPr(),r.getFreePR() - pr,r.getType());
