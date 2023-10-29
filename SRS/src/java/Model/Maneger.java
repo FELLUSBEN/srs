@@ -124,7 +124,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITLE,DESCRIPTION,DATE) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate().getTime()+")");
+            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITLE,DESCRIPTION,DATE,DEST) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate().getTime()+",'"+a.getDest()+"')");
             s.close();
             c.close();
         }catch(Exception exeption){}
@@ -249,7 +249,22 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("DELETE FROM RESTAURANT WHERE USR='"+a.getUsr()+"' AND DATE ='" + a.getDate().toString()+"'"+" AND DEST = '" + a.getDest() + "'");
+            s.executeUpdate("DELETE FROM ANNOUNCEMENT WHERE USR='"+a.getUsr()+"' AND DATE =" + a.getDate()+" AND DEST = '" + a.getDest() + "'");
+            s.close();
+            c.close();
+            return;
+        }catch(Exception exception){
+            return;
+        }
+    }
+    
+    public void DeleteDate(long time){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlc = "jdbc:derby://localhost:1527/SRSDB";
+            Connection c = DriverManager.getConnection(urlc, "root", "root");
+            Statement s = c.createStatement();
+            s.executeUpdate("DELETE * FROM ANNOUNCEMENT WHERE DATE < "+time);
             s.close();
             c.close();
             return;

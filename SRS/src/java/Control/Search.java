@@ -28,7 +28,7 @@ public class Search extends HttpServlet {
             throws ServletException, IOException {
         Model.Maneger maneger = Model.Maneger.getInstance();
         
-        if (request.getAttribute("act") == null){
+        if (request.getParameter("act") == null){
             String[] sparams={request.getParameter("name"), request.getParameter("type")};
             request.getSession().setAttribute("search", sparams[0]+","+sparams[1]);
             ArrayList<Restaurant> rs= maneger.Search(sparams[0], sparams[1]);
@@ -41,7 +41,7 @@ public class Search extends HttpServlet {
 //                String[] s = {"" , ""};
 //                sparams = s;
 //            }
-            if(params[0].equals("Seats")){
+            if(params[0].equals("SEATS")){
                 Restaurant r = maneger.find(params[1]);
                 int seats= Integer.parseInt(request.getParameter("count"));
                 if(r.getFreeSeats()- seats < 0){
@@ -58,8 +58,23 @@ public class Search extends HttpServlet {
                     
                     response.sendRedirect("Main");
                 }
-            }else if(params[0].equals("pr")){
-                
+            }else if(params[0].equals("PR")){
+                Restaurant r = maneger.find(params[1]);
+                int pr= Integer.parseInt(request.getParameter("count"));
+                if(r.getFreePR()- pr < 0){
+                    request.setAttribute("msg", "no_room");
+                    request.getRequestDispatcher("Massege").forward(request, response);//add massege
+                }
+                else{
+                    Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats(),r.getPr(),r.getFreePR() - pr,r.getType());
+
+                    maneger.Update(r, r2);
+                    
+                    Announcement a = new Announcement(((User)request.getSession().getAttribute("user")).getUsr(),"seats",request.getParameter("count"),params[1]);
+                    maneger.Add(a);
+                    
+                    response.sendRedirect("Main");
+                }
             }
         }
         

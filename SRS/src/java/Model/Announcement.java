@@ -14,6 +14,7 @@ public class Announcement {
     private String desc;
     private Date date;
     private String dest;
+    private static int dayOfYear;
     
     public Announcement(String usr, String titel, String desc, long date, String dest) {
         this.usr = usr;
@@ -51,6 +52,12 @@ public class Announcement {
         return dest;
     }
      
-    
+    public static int getDayOfYear(){
+        return dayOfYear;
+    }
+
+    public static void setDayOfYear(int dayOfYear) {
+        Announcement.dayOfYear = dayOfYear;
+    }
     
 }

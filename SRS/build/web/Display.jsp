@@ -45,8 +45,8 @@
                                 <td><%= a.getAddress()%></td>
                                 <td><%= a.getFreeSeats()%></td>
                                 <td><%= a.getFreePR()%></td>
-                                <td><form action="Search" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getName()%>"> <input type=number placeholder="0" id="count" required> <input type="submit" class="submit" value="Book"></form></td>
-                                <td><form action="Search" class="in"><input type="hidden" name="act" value="PR,<%= a.getName()%>"> <input type=number placeholder="0" id="count" required> <input type="submit" class="submit" value="BookPR"></form></td>
+                                <td><form action="Search" method="post" class="in"><input type="hidden" name="act" value="SEATS,<%= a.getName()%>"> <input type=number placeholder="0" name="count" required> <input type="submit" class="submit" value="Book"></form></td>
+                                <td><form action="Search" method="post" class="in"><input type="hidden" name="act" value="PR,<%= a.getName()%>"> <input type=number placeholder="0" name="count" required> <input type="submit" class="submit" value="BookPR"></form></td>
                             </tr>
                         <%}%>
                     </table>

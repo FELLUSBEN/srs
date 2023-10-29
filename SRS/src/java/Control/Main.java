@@ -5,6 +5,8 @@
 package Control;
 
 import Model.*;
+import java.util.Date;
+import java.util.Calendar;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -21,6 +23,12 @@ public class Main extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         Model.Maneger maneger = Model.Maneger.getInstance();
+        
+        if(Calendar.DAY_OF_YEAR != Announcement.getDayOfYear()){
+            maneger.DeleteDate(new Date().getTime());
+            Announcement.setDayOfYear(Calendar.DAY_OF_YEAR);
+        }
+        
         request.setAttribute("announcements", maneger.getAnnouncements((User)request.getSession().getAttribute("user")));
         request.getRequestDispatcher("Main.jsp").forward(request, response);
     }
