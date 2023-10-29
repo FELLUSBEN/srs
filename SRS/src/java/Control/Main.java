@@ -48,6 +48,16 @@ public class Main extends HttpServlet {
             throws ServletException, IOException {
         
         // TODO: remove announcement from table
+        if (request.getParameter("act") != null){
+            String params[] = request.getParameter("act").split(',');
+            if (params[1] == "pr"){
+                
+            }else{
+                
+            }
+        }
+           
+        
         
         request.getRequestDispatcher("Action").forward(request, response);
     }
