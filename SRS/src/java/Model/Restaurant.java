@@ -19,8 +19,23 @@ public class Restaurant extends User{
     private String type;
     private static int dayOfYear;
 
+    public Restaurant(){
+        
+    }
+    
     public Restaurant(String usr, String pass, String name, String address, String employees, int seats, int freeSeats, int pr, int freePR, String type) {
         super(usr, pass);
+        this.name = name;
+        this.address = address;
+        this.employees = employees;
+        this.seats = seats;
+        this.freeSeats = freeSeats;
+        this.pr = pr;
+        this.freePR = freePR;
+        this.type = type;
+    }
+    
+    public void setP(String usr, String pass, String name, String address, String employees, int seats, int freeSeats, int pr, int freePR, String type) {
         this.name = name;
         this.address = address;
         this.employees = employees;

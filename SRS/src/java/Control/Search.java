@@ -52,7 +52,8 @@ public class Search extends HttpServlet {
 
                 }
                 else{
-                    Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats() - seats,r.getPr(),r.getFreePR(),r.getType());
+                    Restaurant r2 = (Restaurant)UserFactory.getUser("restaurant");
+                    r2.setP(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats() - seats,r.getPr(),r.getFreePR(),r.getType());
 
                     maneger.Update(r, r2);
                     
@@ -72,7 +73,8 @@ public class Search extends HttpServlet {
 
                 }
                 else{
-                    Restaurant r2 = new Restaurant(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats(),r.getPr(),r.getFreePR() - pr,r.getType());
+                    Restaurant r2 = (Restaurant)UserFactory.getUser("restaurant");
+                    r2.setP(r.getUsr(),r.getPass(),r.getName(),r.getAddress(),r.getEmployees(),r.getSeats(),r.getFreeSeats(),r.getPr(),r.getFreePR() - pr,r.getType());
 
                     maneger.Update(r, r2);
                     

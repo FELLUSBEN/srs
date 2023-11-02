@@ -37,7 +37,8 @@ public class Maneger {
             if(rs.next()){
                 String u = rs.getString("USR");
                 String p = rs.getString("PASS");
-                user = new User(u, p);
+                user = UserFactory.getUser("customer");
+                user.setP(u,p);
             }else{
                 rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE USR='"+usr+"' AND PASS='"+pass+"'");
                 if(rs.next()){
@@ -51,7 +52,9 @@ public class Maneger {
                     int pr = rs.getInt("PR");
                     int fpr = rs.getInt("FREEPR");
                     String t = rs.getString("TYPE");
-                    user = new Restaurant(u,p,n,a,e,seats,fseats,pr,fpr,t);
+                    user = UserFactory.getUser("restaurant");
+                    ((Restaurant)user).setP(u,p,n,a,e,seats,fseats,pr,fpr,t);
+                    
                 }
             }
             rs.close();
@@ -83,7 +86,8 @@ public class Maneger {
                 int pr = rs.getInt("PR");
                 int fpr = rs.getInt("FREEPR");
                 String t = rs.getString("TYPE");
-                r = new Restaurant(u,p,n,a,e,seats,fseats,pr,fpr,t);
+                r = (Restaurant)UserFactory.getUser("restaurant");
+                r.setP(u,p,n,a,e,seats,fseats,pr,fpr,t);
             }
             rs.close();
             s.close();
@@ -199,7 +203,9 @@ public class Maneger {
             ResultSet rs = s.executeQuery("SELECT * FROM RESTAURANT WHERE RESTAURANT.NAME='"+name+"' OR RESTAURANT.TYPE ='"+type+"'");
             ArrayList<Restaurant> restaurantList = new ArrayList<>();
             while(rs.next()){
-                restaurantList.add(new Restaurant("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("TYPE")));
+                Restaurant tmp = (Restaurant)UserFactory.getUser("restaurant");
+                tmp.setP("","",rs.getString("NAME"),rs.getString("ADDRESS"),"",rs.getInt("SEATS"),rs.getInt("FREESEATS"),rs.getInt("PR"),rs.getInt("FREEPR"),rs.getString("TYPE"));
+                restaurantList.add(tmp);
             }
             rs.close();
             s.close();

@@ -12,8 +12,16 @@ public class Castomer extends User {
 
     String email;
     
+    public Castomer(){
+        
+    }
+    
     public Castomer(String usr,String pass, String email) {
         super(usr,pass);
+        this.email = email;
+    }
+    public void setP(String usr,String pass, String email) {
+        super.setP(usr,pass);
         this.email = email;
     }
 

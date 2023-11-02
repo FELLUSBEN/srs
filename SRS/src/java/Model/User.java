@@ -12,6 +12,10 @@ public class User {
     private String usr;
     private String pass;
     
+    public User(){
+        
+    }
+    
     public User(String usr,String pass){
         this.usr = usr;
         this.pass = pass;
@@ -29,6 +33,14 @@ public class User {
     public String getPass() {
         return pass;
     }
+    
+    public void setUsr(String usr){
+        this.usr = usr;
+    }
+    public void setPass(String pass){
+        this.pass = pass;
+    }
+    
 
     @Override
     public boolean equals(Object obj) {
