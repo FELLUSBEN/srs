@@ -124,7 +124,7 @@ public class Maneger {
             String urlc = "jdbc:derby://localhost:1527/SRSDB";
             Connection c = DriverManager.getConnection(urlc, "root", "root");
             Statement s = c.createStatement();
-            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITLE,DESCRIPTION,DATE,DEST) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate().getTime()+",'"+a.getDest()+"')");
+            s.executeUpdate("insert into ANNOUNCEMENTS (USR,TITLE,DESCRIPTION,DATE,DEST) VALUES ('"+a.getUsr()+"','"+a.getTitel()+"','"+a.getDesc()+"',"+a.getDate()+",'"+a.getDest()+"')");
             s.close();
             c.close();
         }catch(Exception exeption){}
@@ -282,7 +282,7 @@ public class Maneger {
             ResultSet rs;
             
             if(u instanceof Restaurant){
-                rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS WHERE DEST='"+u.getUsr()+"'");
+                rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS WHERE DEST='"+((Restaurant) u).getName()+"'");
             }else{
                 rs = s.executeQuery("SELECT * FROM ANNOUNCEMENTS WHERE DEST='x'");
             }

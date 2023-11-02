@@ -1,6 +1,7 @@
 <%@ include file = "Header.jsp" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Model.*" %>
+<%@ page import="java.util.Date" %>
 <jsp:useBean id="user" class="Model.User" scope="session" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
@@ -52,7 +53,7 @@
                     <td><%= a.getUsr()%></td>
                     <td><%= a.getTitel()%></td>
                     <td><%= a.getDesc()%></td>
-                    <td><%= a.getDate()%></td>
+                    <td><%= new Date(a.getDate())%></td>
                     <% if(user instanceof Model.Restaurant){ %>
                     <td><form method="POST" class="in"><input type="hidden" name="act" value="<%= a.getUsr()%>,<%= a.getTitel()%>,<%= a.getDesc()%>,<%= a.getDate()%>,<%= a.getDest() %>"><input type="submit" class="submit" value="Remove Entry"></form></td> <!--remove specific entry-->
                     <%}%>
