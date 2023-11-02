@@ -12,7 +12,7 @@ public class Announcement {
     private String usr;
     private String titel;
     private String desc;
-    private long date;
+    private Date date;
     private String dest;
     private static int dayOfYear;
     
@@ -20,7 +20,7 @@ public class Announcement {
         this.usr = usr;
         this.titel = titel;
         this.desc = desc;
-        this.date = date;
+        this.date = new Date(date);
         this.dest=dest;
     }
 
@@ -28,11 +28,11 @@ public class Announcement {
         this.usr = usr;
         this.titel = titel;
         this.desc = desc;
-        this.date = new Date().getTime();
+        this.date = new Date();
         this.dest = dest;
     }
 
-    public long getDate() {
+    public Date getDate() {
         return date;
     }
 
