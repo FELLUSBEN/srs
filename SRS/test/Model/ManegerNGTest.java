@@ -23,19 +23,19 @@ public class ManegerNGTest {
     public ManegerNGTest() {
     }
 
-    @BeforeClass
+
     public static void setUpClass() throws Exception {
     }
 
-    @AfterClass
+
     public static void tearDownClass() throws Exception {
     }
 
-    @BeforeMethod
+
     public void setUpMethod() throws Exception {
     }
 
-    @AfterMethod
+
     public void tearDownMethod() throws Exception {
     }
 
