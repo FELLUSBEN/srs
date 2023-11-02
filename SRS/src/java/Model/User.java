@@ -30,4 +30,9 @@ public class User {
         return pass;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        User u = (User)obj;
+        return this.getUsr().equals(u.getUsr()) && this.getPass().equals(u.getPass());
+    }
 }

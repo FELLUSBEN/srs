@@ -60,4 +60,9 @@ public class Announcement {
         dayOfYear = day;
     }
     
+    @Override
+    public boolean equals(Object obj) {
+        Announcement a = (Announcement)obj;
+        return this.getUsr().equals(a.getUsr()) && this.getDate() == a.getDate();
+    }
 }

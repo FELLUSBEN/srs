@@ -78,4 +78,5 @@ public class Restaurant extends User{
     public static void setDayOfYear(int day) {
         dayOfYear = day;
     }
+
 }
