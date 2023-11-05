@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 11 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-SRS">
+              <span class="suite-name border-failed">SRS</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-SRS">
+                    <span>[unset file name]</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-SRS">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-SRS">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-SRS">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-SRS">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-SRS">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-SRS">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">14 methods, 11 failed,   3 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-SRS" class="hide-methods failed suite-SRS"> (hide)</a> <!-- hide-methods failed suite-SRS -->
+                      <a href="#" panel-name="suite-SRS" class="show-methods failed suite-SRS"> (show)</a> <!-- show-methods failed suite-SRS -->
+                    </span>
+                    <div class="method-list-content failed suite-SRS">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testAdd_Announcement">testAdd_Announcement</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testAdd_Castomer">testAdd_Castomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testCheckUsr">testCheckUsr</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testDelete_Announcement">testDelete_Announcement</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testDelete_Castomer">testDelete_Castomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testFind">testFind</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testIsExists_Announcement">testIsExists_Announcement</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testIsExists_Castomer">testIsExists_Castomer</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testIsExists_Restaurant">testIsExists_Restaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testSearch">testSearch</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testUpdate_Restaurant_Restaurant">testUpdate_Restaurant_Restaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-SRS -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-SRS" class="hide-methods passed suite-SRS"> (hide)</a> <!-- hide-methods passed suite-SRS -->
+                      <a href="#" panel-name="suite-SRS" class="show-methods passed suite-SRS"> (show)</a> <!-- show-methods passed suite-SRS -->
+                    </span>
+                    <div class="method-list-content passed suite-SRS">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testAdd_Restaurant">testAdd_Restaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testDelete_Restaurant">testDelete_Restaurant</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-SRS" title="Model.ManegerNGTest" hash-for-method="testGetInstance">testGetInstance</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-SRS -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-SRS" class="panel SRS">
+          <div class="suite-SRS-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">Model.ManegerNGTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAdd_Announcement">
+                  </a> <!-- testAdd_Announcement -->
+                  <span class="method-name">testAdd_Announcement</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t add announcement expected [true] but found [false]
+	at Model.ManegerNGTest.testAdd_Announcement(ManegerNGTest.java:249)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAdd_Castomer">
+                  </a> <!-- testAdd_Castomer -->
+                  <span class="method-name">testAdd_Castomer</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t add customer expected [true] but found [false]
+	at Model.ManegerNGTest.testAdd_Castomer(ManegerNGTest.java:225)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testCheckUsr">
+                  </a> <!-- testCheckUsr -->
+                  <span class="method-name">testCheckUsr</span>
+                  <div class="stack-trace">java.lang.AssertionError: found user expected [null] but found [Model.Castomer@1d76aeea]
+	at Model.ManegerNGTest.testCheckUsr(ManegerNGTest.java:108)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDelete_Announcement">
+                  </a> <!-- testDelete_Announcement -->
+                  <span class="method-name">testDelete_Announcement</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t preform the test because isExists don&apos;t work or the test restaurant dosn&apos;t exists expected [true] but found [false]
+	at Model.ManegerNGTest.testDelete_Announcement(ManegerNGTest.java:198)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDelete_Castomer">
+                  </a> <!-- testDelete_Castomer -->
+                  <span class="method-name">testDelete_Castomer</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t preform the test because isExists don&apos;t work or the test customer dosn&apos;t exists expected [true] but found [false]
+	at Model.ManegerNGTest.testDelete_Castomer(ManegerNGTest.java:173)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFind">
+                  </a> <!-- testFind -->
+                  <span class="method-name">testFind</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t find restaurant expected [Model.Restaurant@f8c1ddd] but found [null]
+	at Model.ManegerNGTest.testFind(ManegerNGTest.java:115)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testIsExists_Announcement">
+                  </a> <!-- testIsExists_Announcement -->
+                  <span class="method-name">testIsExists_Announcement</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t find announcement expected [true] but found [false]
+	at Model.ManegerNGTest.testIsExists_Announcement(ManegerNGTest.java:149)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testIsExists_Castomer">
+                  </a> <!-- testIsExists_Castomer -->
+                  <span class="method-name">testIsExists_Castomer</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t find castomer expected [true] but found [false]
+	at Model.ManegerNGTest.testIsExists_Castomer(ManegerNGTest.java:127)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testIsExists_Restaurant">
+                  </a> <!-- testIsExists_Restaurant -->
+                  <span class="method-name">testIsExists_Restaurant</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t find restaurant expected [true] but found [false]
+	at Model.ManegerNGTest.testIsExists_Restaurant(ManegerNGTest.java:138)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testSearch">
+                  </a> <!-- testSearch -->
+                  <span class="method-name">testSearch</span>
+                  <div class="stack-trace">java.lang.AssertionError: couldn&apos;t find restaurant by name
+	at Model.ManegerNGTest.testSearch(ManegerNGTest.java:161)
+... Removed 26 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testUpdate_Restaurant_Restaurant">
+                  </a> <!-- testUpdate_Restaurant_Restaurant -->
+                  <span class="method-name">testUpdate_Restaurant_Restaurant</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at Model.ManegerNGTest.testUpdate_Restaurant_Restaurant(ManegerNGTest.java:257)
+... Removed 24 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SRS-class-failed -->
+          <div class="suite-SRS-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">Model.ManegerNGTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAdd_Restaurant">
+                  </a> <!-- testAdd_Restaurant -->
+                  <span class="method-name">testAdd_Restaurant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDelete_Restaurant">
+                  </a> <!-- testDelete_Restaurant -->
+                  <span class="method-name">testDelete_Restaurant</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetInstance">
+                  </a> <!-- testGetInstance -->
+                  <span class="method-name">testGetInstance</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-SRS-class-passed -->
+        </div> <!-- panel SRS -->
+        <div panel-name="test-xml-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;SRS&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;TestNG tests&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Model.ManegerNGTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- TestNG tests --&gt;
+&lt;/suite&gt; &lt;!-- SRS --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for SRS</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">TestNG tests (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for SRS</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for SRS</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_SRS');
+function tableData_SRS() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(14);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'testAdd_Announcement')
+data.setCell(0, 2, 'Model.ManegerNGTest')
+data.setCell(0, 3, 273);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'testAdd_Castomer')
+data.setCell(1, 2, 'Model.ManegerNGTest')
+data.setCell(1, 3, 148);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testAdd_Restaurant')
+data.setCell(2, 2, 'Model.ManegerNGTest')
+data.setCell(2, 3, 38);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testDelete_Restaurant')
+data.setCell(3, 2, 'Model.ManegerNGTest')
+data.setCell(3, 3, 20);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'testCheckUsr')
+data.setCell(4, 2, 'Model.ManegerNGTest')
+data.setCell(4, 3, 12);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'testFind')
+data.setCell(5, 2, 'Model.ManegerNGTest')
+data.setCell(5, 3, 7);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'testSearch')
+data.setCell(6, 2, 'Model.ManegerNGTest')
+data.setCell(6, 3, 7);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'testIsExists_Castomer')
+data.setCell(7, 2, 'Model.ManegerNGTest')
+data.setCell(7, 3, 6);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'testDelete_Castomer')
+data.setCell(8, 2, 'Model.ManegerNGTest')
+data.setCell(8, 3, 5);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testIsExists_Restaurant')
+data.setCell(9, 2, 'Model.ManegerNGTest')
+data.setCell(9, 3, 4);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testDelete_Announcement')
+data.setCell(10, 2, 'Model.ManegerNGTest')
+data.setCell(10, 3, 3);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testIsExists_Announcement')
+data.setCell(11, 2, 'Model.ManegerNGTest')
+data.setCell(11, 3, 3);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testUpdate_Restaurant_Restaurant')
+data.setCell(12, 2, 'Model.ManegerNGTest')
+data.setCell(12, 3, 3);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testGetInstance')
+data.setCell(13, 2, 'Model.ManegerNGTest')
+data.setCell(13, 3, 0);
+window.suiteTableData['SRS']= { tableData: data, tableDiv: 'times-div-SRS'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 529 ms</span>
+              <div id="times-div-SRS">
+              </div> <!-- times-div-SRS -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for SRS</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-SRS" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">Model.ManegerNGTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testAdd_Announcement</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testAdd_Castomer</span>
+                <span class="method-start">275 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAdd_Restaurant</span>
+                <span class="method-start">425 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testCheckUsr</span>
+                <span class="method-start">464 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testDelete_Announcement</span>
+                <span class="method-start">476 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testDelete_Castomer</span>
+                <span class="method-start">480 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDelete_Restaurant</span>
+                <span class="method-start">485 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testFind</span>
+                <span class="method-start">505 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testGetInstance</span>
+                <span class="method-start">512 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testIsExists_Announcement</span>
+                <span class="method-start">512 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testIsExists_Castomer</span>
+                <span class="method-start">515 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testIsExists_Restaurant</span>
+                <span class="method-start">522 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testSearch</span>
+                <span class="method-start">527 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testUpdate_Restaurant_Restaurant</span>
+                <span class="method-start">535 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

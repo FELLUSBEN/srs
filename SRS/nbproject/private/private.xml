@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Model/Maneger.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Control/Main.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Model/Castomer.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Model/Restaurant.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Model/User.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/test/Model/ManegerNGTest.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Control/Search.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/test/Model/ManegerTest.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Model/Announcement.java</file>
-            <file>file:/C:/Users/razic/srs/SRS/src/java/Control/Announce.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

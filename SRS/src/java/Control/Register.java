@@ -26,7 +26,7 @@ public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession s =request.getSession();
+        HttpSession s = request.getSession();
         Model.Maneger maneger = Model.Maneger.getInstance();
 
         User u;
@@ -37,12 +37,14 @@ public class Register extends HttpServlet {
             return;
         }
         if(request.getParameter("type").equals("customer")){
-            Castomer c =new Castomer(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("email"));
+            Castomer c = (Castomer)UserFactory.getUser("customer");
+            c.setP(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("email"));
             maneger.Add(c);
             u = c;
         } 
         else{
-            Restaurant r =new Restaurant(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("name"),request.getParameter("address"), request.getParameter("employees"), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("pr")), Integer.parseInt(request.getParameter("pr")), request.getParameter("Ftype"));
+            Restaurant r = (Restaurant)UserFactory.getUser("restaurant");
+            r.setP(request.getParameter("uname"), request.getParameter("psw"), request.getParameter("name"),request.getParameter("address"), request.getParameter("employees"), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("seats")), Integer.parseInt(request.getParameter("pr")), Integer.parseInt(request.getParameter("pr")), request.getParameter("Ftype"));
             maneger.Add(r);
             u = r;
         }

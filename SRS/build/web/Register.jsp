@@ -40,7 +40,7 @@
                 <button type="submit">Register</button>                    
             </form>
             </div>
-            <button id="toggle-form-button">Switch to Restaurant Signup</button>
+            <button id="toggle-form-button">Switch Signup form</button>
 
             
         </div>

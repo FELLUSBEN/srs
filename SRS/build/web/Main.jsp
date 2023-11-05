@@ -4,7 +4,7 @@
 <%@ page import="java.util.Date" %>
 <jsp:useBean id="user" class="Model.User" scope="session" />
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% if (session.getAttribute("UserName") == null){response.sendRedirect("index.jsp");} %>
+<% if (session.getAttribute("user") == null){response.sendRedirect("index.jsp");} %>
 <!DOCTYPE html>
 <html>
     <head>

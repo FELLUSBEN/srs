@@ -134,18 +134,6 @@ public class Maneger {
         }catch(Exception exeption){}
     }
     
-    public void Update(Castomer c1,Castomer c2){
-        try{
-            Class.forName("org.apache.derby.jdbc.ClientDriver");
-            String urlc = "jdbc:derby://localhost:1527/SRSDB";
-            Connection c = DriverManager.getConnection(urlc, "root", "root");
-            Statement s = c.createStatement();
-            s.executeUpdate("UPDATE USERS SET EMAIL='"+c2.getEmail()+"' WHERE USR='"+c1.getUsr()+"'AND PASS='"+c1.getPass()+"'");
-            s.close();
-            c.close();
-        }catch(Exception exeption){}
-    }
-    
     public void Update(Restaurant r1,Restaurant r2){
         try{
             Class.forName("org.apache.derby.jdbc.ClientDriver");
@@ -183,6 +171,24 @@ public class Maneger {
             Connection cn = DriverManager.getConnection(urlCn,"root", "root");
             Statement  st = cn.createStatement();
             ResultSet rs = st.executeQuery("select * from RESTAURANT WHERE USR='"+r.getUsr()+"' AND PASS='"+r.getPass()+"'");
+
+            boolean exists =false;
+            if(rs.next())
+                exists = true;
+            rs.close();
+            st.close();
+            cn.close();
+            return exists;
+        }catch(Exception exception){return false;}
+    }
+    
+    public boolean isExists(Announcement a){
+        try{
+            Class.forName("org.apache.derby.jdbc.ClientDriver");
+            String urlCn="jdbc:derby://localhost:1527/SRSDB";
+            Connection cn = DriverManager.getConnection(urlCn,"root", "root");
+            Statement  st = cn.createStatement();
+            ResultSet rs = st.executeQuery("select * from ANNOUNCEMENTS WHERE DATE="+a.getDate());
 
             boolean exists =false;
             if(rs.next())

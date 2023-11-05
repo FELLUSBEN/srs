@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [SRS]">
+  <test thread-count="5" name="TestNG tests(failed)">
+    <classes>
+      <class name="Model.ManegerNGTest">
+        <methods>
+          <include name="testAdd_Castomer"/>
+          <include name="testIsExists_Restaurant"/>
+          <include name="testAdd_Announcement"/>
+          <include name="testDelete_Announcement"/>
+          <include name="testDelete_Castomer"/>
+          <include name="testFind"/>
+          <include name="testUpdate_Restaurant_Restaurant"/>
+          <include name="testCheckUsr"/>
+          <include name="testIsExists_Announcement"/>
+          <include name="testIsExists_Castomer"/>
+          <include name="testSearch"/>
+        </methods>
+      </class> <!-- Model.ManegerNGTest -->
+    </classes>
+  </test> <!-- TestNG tests(failed) -->
+</suite> <!-- Failed suite [SRS] -->
