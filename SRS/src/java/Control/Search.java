@@ -86,14 +86,6 @@ public class Search extends HttpServlet {
             }
         }
         
-//        HttpSession session = request.getSession();
-//        //get all restaurants with the parameters sent by the client - name and type
-//        String name = request.getParameter("res_name");
-//        String type = request.getParameter("type");
-//        ArrayList<Restaurant> res_list = new ArrayList<Restaurant>();
-//        //use manager!!!
-//        request.setAttribute("res_list", res_list);
-//        request.getRequestDispatcher("Search.jsp").forward(request, response);
     }
 
     @Override
