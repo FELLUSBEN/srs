@@ -30,7 +30,7 @@ public class Register extends HttpServlet {
         Model.Maneger maneger = Model.Maneger.getInstance();
 
         User u;
-        //add psw == psw2 check!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        
         if(!request.getParameter("psw").equals(request.getParameter("psw2"))){
             request.setAttribute("msg", "Passwords don't match");
             request.getRequestDispatcher("Register.jsp").forward(request, response);
