@@ -1,3 +1,3 @@
 # srs
-super reservation system - a restourant reservation website \
+super reservation system - a restaurant reservation website \
 software development course final project
